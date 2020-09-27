@@ -1,4 +1,4 @@
-# bitclass-plataform
+# Bitclass Plataform
 
 ## Build Setup
 
