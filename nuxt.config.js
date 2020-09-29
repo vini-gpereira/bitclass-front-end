@@ -38,6 +38,32 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  tailwindcss: {
+    config: {
+      future: {
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
+      },
+      theme: {
+        extend: {
+          colors: {
+            redbits: '#ff4b5c',
+            graybits: {
+              100: '#454545',
+              500: '#3a3a3a',
+              900: '#333333',
+            },
+            whitebits: '#f5f5f5',
+          },
+          fontFamily: {
+            fredoka: ['Fredoka One', 'cursive'],
+            mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    },
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 }
