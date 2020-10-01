@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <nav
-      class="flex flex-row justify-between items-center mx-auto w-10/12 h-24 md:w-8/12 md:h-32"
+      class="flex flex-row justify-between items-center mx-auto w-10/12 h-16 md:w-8/12 md:h-32"
     >
       <NuxtLink to="/" class="font-fredoka text-redbits text-4xl md:text-5xl"
         >BitClass</NuxtLink
@@ -24,12 +24,13 @@
     </nav>
     <ul
       id="menu"
-      class="w-full h-0 overflow-hidden transition-height duration-200 ease-in"
+      class="max-h-0 overflow-hidden transition-maxh duration-300 ease-out bg-graybits-900"
     >
-      <li class="w-full h-4 px-4">
+      <li>
         <a href="https://codelab.ime.usp.br/#/" class="nav-btn">UCL</a>
       </li>
-      <li class="w-full h-4 px-4">
+      <hr class="w-11/12 mx-auto" />
+      <li>
         <NuxtLink to="/videos" class="nav-btn text-redbits">Videos</NuxtLink>
       </li>
     </ul>
@@ -48,9 +49,9 @@ export default {
     openMenu() {
       const menuEl = document.getElementById('menu')
       if (this.isMenuActive) {
-        menuEl.style.height = '0px'
+        menuEl.style.maxHeight = '0px'
       } else {
-        menuEl.style.height = '100px'
+        menuEl.style.maxHeight = menuEl.scrollHeight + 'px'
       }
       this.isMenuActive = !this.isMenuActive
     }
@@ -59,7 +60,11 @@ export default {
 </script>>
 
 <style scoped>
+li {
+  @apply w-full px-4 h-12 flex items-center;
+}
+
 .nav-btn {
-  @apply w-auto text-2xl text-center;
+  @apply text-2xl text-center;
 }
 </style>
