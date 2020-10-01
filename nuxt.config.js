@@ -29,6 +29,7 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -40,6 +41,7 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  // TailwindCSS module configuration
   tailwindcss: {
     config: {
       future: {
@@ -63,6 +65,18 @@ export default {
           },
         },
       },
+    },
+  },
+
+  vuetify: {
+    icons: {
+      iconfont: 'faSvg',
+    },
+  },
+
+  fontawesome: {
+    icons: {
+      solid: true,
     },
   },
 
