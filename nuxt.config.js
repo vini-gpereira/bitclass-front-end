@@ -63,6 +63,9 @@ export default {
             fredoka: ['Fredoka One', 'cursive'],
             mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
           },
+          transitionProperty: {
+            height: 'height',
+          },
         },
       },
     },
