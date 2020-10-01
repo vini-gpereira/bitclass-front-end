@@ -29,7 +29,7 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    '@nuxtjs/fontawesome',
+    'nuxt-fontawesome',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -75,9 +75,13 @@ export default {
   },
 
   fontawesome: {
-    icons: {
-      solid: true,
-    },
+    component: 'faIcon',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+    ],
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
