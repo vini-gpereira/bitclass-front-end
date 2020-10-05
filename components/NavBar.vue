@@ -57,11 +57,13 @@ export default {
     }
   }
 }
-</script>>
+</script>
 
-<style scoped>
-li {
-  @apply w-full px-4 h-12 flex items-center;
+<style lang="scss" scoped>
+ul {
+  li {
+    @apply w-full px-4 h-12 flex items-center;
+  }
 }
 
 .nav-btn {
