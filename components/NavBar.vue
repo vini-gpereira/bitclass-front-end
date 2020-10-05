@@ -17,7 +17,7 @@
           class="nav-btn text-redbits ml-2 hidden md:inline-block"
           >Videos</NuxtLink
         >
-        <button @click="openMenu" class="w-auto h-auto">
+        <button class="w-auto h-auto" @click="openMenu">
           <fa-icon icon="bars" class="md:hidden fa-lg"></fa-icon>
         </button>
       </div>
@@ -42,7 +42,7 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      isMenuActive: false
+      isMenuActive: false,
     }
   },
   methods: {
@@ -54,8 +54,8 @@ export default {
         menuEl.style.maxHeight = menuEl.scrollHeight + 'px'
       }
       this.isMenuActive = !this.isMenuActive
-    }
-  }
+    },
+  },
 }
 </script>
 
