@@ -24,7 +24,7 @@
     </nav>
     <ul
       id="menu"
-      class="max-h-0 overflow-hidden transition-maxh duration-300 ease-out bg-graybits-900"
+      class="max-h-0 md:hidden overflow-hidden transition-maxh duration-300 ease-out bg-graybits-900"
     >
       <li>
         <a href="https://codelab.ime.usp.br/#/" class="nav-btn">UCL</a>
