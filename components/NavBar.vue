@@ -13,9 +13,9 @@
           >UCL</a
         >
         <NuxtLink
-          to="/videos"
+          to="/about"
           class="nav-btn text-redbits ml-2 hidden md:inline-block"
-          >Videos</NuxtLink
+          >Sobre</NuxtLink
         >
         <button class="w-auto h-auto" @click="openMenu">
           <fa-icon icon="bars" class="md:hidden fa-lg"></fa-icon>
