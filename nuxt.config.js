@@ -55,7 +55,7 @@ export default {
             graybits: {
               100: '#454545',
               500: '#3a3a3a',
-              900: '#333333',
+              900: '#2e2e2e',
             },
             whitebits: '#f5f5f5',
           },
@@ -63,8 +63,14 @@ export default {
             fredoka: ['Fredoka One', 'cursive'],
             mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
           },
+          width: {
+            'al-mid': '49.5%',
+          },
           maxHeight: {
             0: '0',
+          },
+          lineHeight: {
+            12: '3rem',
           },
           transitionProperty: {
             height: 'height',
