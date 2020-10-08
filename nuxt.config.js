@@ -78,6 +78,10 @@ export default {
           },
         },
       },
+      variants: {
+        borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
+        transitionDelay: ['responsive', 'hover', 'focus'],
+      },
     },
   },
 
