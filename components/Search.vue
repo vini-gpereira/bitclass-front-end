@@ -1,26 +1,34 @@
 <template>
-  <section class="mx-auto w-10/12 text-sm mt-5 md:w-9/12 md:text-xl">
+  <section class="w-10/12 mx-auto mt-5 text-sm md:w-9/12 md:text-xl">
     <div
-      class="px-4 flex flex-row bg-whitebits border-2 border-solid rounded-full transition duration-300 border-2 border-solid focus-within:border-redbits md:h-12"
+      class="flex flex-row h-10 px-3 transition duration-300 border-2 border-solid rounded-full md:px-4 bg-whitebits focus-within:border-redbits md:h-12"
     >
+      <fa-icon
+        icon="search"
+        class="h-full mr-2 text-redbits md:hidden"
+      ></fa-icon>
       <input
         v-model="searchInput"
         type="search"
         placeholder="Procure pelo conteúdo"
-        class="text-black w-full mr-3"
+        class="w-full mr-2 text-black"
       />
-      <div class="flex flex-row items-center">
-        <fa-icon
-          v-if="searchInput"
-          icon="times"
-          class="text-gray-600 mr-3 cursor-pointer"
-          @click="searchInput = ''"
-        ></fa-icon>
-        <div v-if="searchInput" class="w-px h-8 bg-gray-500 mr-3"></div>
-        <fa-icon icon="search" class="text-redbits cursor-pointer"></fa-icon>
-      </div>
+      <fa-icon
+        v-if="searchInput"
+        icon="times"
+        class="h-full text-gray-600 cursor-pointer md:mr-3"
+        @click="searchInput = ''"
+      ></fa-icon>
+      <div
+        v-if="searchInput"
+        class="hidden w-px h-8 my-auto mr-3 bg-gray-500 md:inline-block"
+      ></div>
+      <fa-icon
+        icon="search"
+        class="hidden h-full cursor-pointer text-redbits md:inline-block"
+      ></fa-icon>
     </div>
-    <div class="flex flex-row justify-between mt-2 md:h-12 md:mt-6">
+    <div class="mt-2 flex-row-between md:h-12 md:mt-6">
       <button :class="btnsClasses.videos" @click="handleBtnClick('videos')">
         Videos
       </button>
