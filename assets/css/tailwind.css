@@ -6,9 +6,11 @@
 @tailwind utilities;
 
 @layer utilities {
-  .flex-row-between {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  @responsive {
+    .flex-row-between {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 }
