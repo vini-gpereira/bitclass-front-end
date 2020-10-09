@@ -1,7 +1,7 @@
 <template>
-  <section class="mx-auto w-10/12 h-64 text-sm mt-5">
+  <section class="mx-auto w-10/12 text-sm mt-5 md:w-9/12 md:text-xl">
     <div
-      class="px-3 h-10 flex flex-row bg-whitebits border-2 border-solid rounded-full transition duration-300 border-2 border-solid focus-within:border-redbits"
+      class="px-4 flex flex-row bg-whitebits border-2 border-solid rounded-full transition duration-300 border-2 border-solid focus-within:border-redbits md:h-12"
     >
       <input
         v-model="searchInput"
@@ -9,21 +9,18 @@
         placeholder="Procure pelo conteúdo"
         class="text-black w-full mr-3"
       />
-      <div class="text-xs flex flex-row items-center">
+      <div class="flex flex-row items-center">
         <fa-icon
           v-if="searchInput"
           icon="times"
-          class="text-black fa-lg mr-3 cursor-pointer"
+          class="text-gray-600 mr-3 cursor-pointer"
           @click="searchInput = ''"
         ></fa-icon>
         <div v-if="searchInput" class="w-px h-8 bg-gray-500 mr-3"></div>
-        <fa-icon
-          icon="search"
-          class="text-redbits fa-lg cursor-pointer"
-        ></fa-icon>
+        <fa-icon icon="search" class="text-redbits cursor-pointer"></fa-icon>
       </div>
     </div>
-    <div class="flex flex-row justify-between mt-2">
+    <div class="flex flex-row justify-between mt-2 md:h-12 md:mt-6">
       <button :class="btnsClasses.videos" @click="handleBtnClick('videos')">
         Videos
       </button>
@@ -51,10 +48,10 @@ export default {
     }
   },
   methods: {
-    handleBtnClick(searchType) {
-      this.btnsClasses[this.selectedBtn] = 'no-selected'
-      this.btnsClasses[searchType] = 'selected'
-      this.selectedBtn = searchType
+    handleBtnClick(newSearchType) {
+      this.btnsClasses[this.searchType] = 'no-selected'
+      this.btnsClasses[newSearchType] = 'selected'
+      this.searchType = newSearchType
     },
   },
 }
@@ -69,5 +66,10 @@ button {
 }
 .no-selected {
   @apply bg-transparent text-redbits;
+}
+@screen md {
+  button {
+    @apply h-full border-2;
+  }
 }
 </style>
