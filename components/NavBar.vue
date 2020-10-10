@@ -7,8 +7,8 @@
         >BitClass</NuxtLink
       >
       <div class="hidden text-2xl md:flex-row-between">
-        <a href="https://codelab.ime.usp.br/#/" class="mr-2 nav-btn">UCL</a>
-        <NuxtLink to="/about" class="ml-2 nav-btn">Sobre</NuxtLink>
+        <a href="https://codelab.ime.usp.br/#/" class="mr-4 nav-btn">UCL</a>
+        <NuxtLink to="/about" class="ml-4 nav-btn">Sobre</NuxtLink>
       </div>
       <button class="inline-block w-auto h-auto md:hidden" @click="openMenu">
         <fa-icon icon="bars" class="fa-lg"></fa-icon>

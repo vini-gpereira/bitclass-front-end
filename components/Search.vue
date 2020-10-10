@@ -1,28 +1,28 @@
 <template>
   <section class="w-10/12 mx-auto mt-5 text-sm md:w-9/12 md:text-xl">
     <div
-      class="flex flex-row h-10 px-3 transition duration-300 border-2 border-solid rounded-full md:px-4 bg-whitebits focus-within:border-redbits md:h-12"
+      class="flex flex-row h-10 px-4 rounded-full md:px-5 bg-whitebits md:h-12"
     >
       <fa-icon
         icon="search"
-        class="h-full mr-2 text-redbits md:hidden"
+        class="h-full mr-3 text-redbits md:hidden"
       ></fa-icon>
       <input
         v-model="searchInput"
         type="search"
         placeholder="Procure pelo conteúdo"
-        class="w-full mr-2 text-black"
+        class="w-full mr-3 text-black md:mr-5"
       />
       <fa-icon
         v-if="searchInput"
         icon="times"
-        class="h-full text-gray-600 cursor-pointer md:mr-3"
+        class="h-full text-gray-600 cursor-pointer md:mr-5"
         @click="searchInput = ''"
       ></fa-icon>
-      <div
+      <span
         v-if="searchInput"
-        class="hidden w-px h-8 my-auto mr-3 bg-gray-500 md:inline-block"
-      ></div>
+        class="hidden w-px h-8 my-auto mr-5 bg-gray-400 md:inline-block"
+      ></span>
       <fa-icon
         icon="search"
         class="hidden h-full cursor-pointer text-redbits md:inline-block"
