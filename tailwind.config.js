@@ -18,6 +18,9 @@ module.exports = {
         fredoka: ['Fredoka One', 'cursive'],
         mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       },
+      boxShadow: {
+        bits: '0 0 10px 1px #ff4b5c',
+      },
       width: {
         'al-mid': '49.5%',
       },
