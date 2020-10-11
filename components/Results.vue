@@ -14,14 +14,7 @@
 </template>
 
 <script>
-import VideoResult from './VideoResult.vue'
-import CategoryResult from './CategoryResult.vue'
-
 export default {
-  components: {
-    VideoResult,
-    CategoryResult,
-  },
   props: {
     type: {
       type: String,

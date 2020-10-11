@@ -1,10 +1,13 @@
 <template>
   <a>
-    <img src="" alt="video-thumbnail" />
+    <img
+      :src="`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`"
+      alt="video-thumbnail"
+    />
     <div>
-      <h1></h1>
-      <p></p>
-      <p></p>
+      <h1>{{ video.title }}</h1>
+      <p>{{ video.author }} - {{ video.postDate }} - {{ video.duration }}</p>
+      <p>{{ video.description }}</p>
     </div>
   </a>
 </template>
@@ -12,7 +15,7 @@
 <script>
 export default {
   props: {
-    category: {
+    video: {
       type: Object,
       default: () => {},
     },

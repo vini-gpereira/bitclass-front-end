@@ -18,7 +18,7 @@
 <script>
 export default {
   props: {
-    video: {
+    category: {
       type: Object,
       default: () => {},
     },
