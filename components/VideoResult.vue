@@ -1,20 +1,27 @@
 <template>
-  <a href="/" class="">
-    <div class="w-auto">
+  <a
+    href="/"
+    class="flex-row duration-100 ease-linear md:flex md:hover:shadow-focus md:p-2 md:transition-shadow"
+  >
+    <div class="w-auto h-full border border-whitebits thumb-container">
       <img
         :src="`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`"
         alt="video-thumbnail"
         class="w-full"
       />
     </div>
-    <div class="p-2 mb-2">
-      <h1 class="text-lg">{{ video.title }}</h1>
-      <p class="text-xs">
-        {{ video.author }} - {{ video.postDate }} - {{ video.duration }}
-      </p>
-      <p class="hidden mt-auto text-xs md:inline-block">
-        {{ video.description }}
-      </p>
+    <div class="flex-col justify-between w-full mt-2 md:mt-0 md:ml-3 md:flex">
+      <div class="lg:flex-grow">
+        <h1 class="text-lg md:text-3xl">{{ video.title }}</h1>
+        <p class="text-xs md:text-base">
+          {{ video.author }} - {{ video.postDate }} - {{ video.duration }}
+        </p>
+      </div>
+      <div class="flex-grow hidden lg:inline-block">
+        <p class="w-full text-sm text-desc">
+          {{ video.description }}
+        </p>
+      </div>
     </div>
   </a>
 </template>
@@ -29,3 +36,22 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.text-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 18px;
+  max-height: 54px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@screen md {
+  .thumb-container {
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
+</style>
