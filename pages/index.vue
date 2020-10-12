@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Results type="videos" :results="results" />
-  </div>
+  <Results type="videos" :results="results" />
 </template>
 
 <script>
@@ -34,7 +32,7 @@ export default {
           duration: '13min',
           postDate: '21/09/2020',
           description:
-            'No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!',
+            'No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!',
         },
       ],
     }
