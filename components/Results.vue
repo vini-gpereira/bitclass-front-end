@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <ul v-if="type === 'videos'">
-      <li v-for="(video, index) in results" :key="index">
+  <div class="mt-8">
+    <ul v-if="type === 'videos'" class="flex flex-col items-center">
+      <li
+        v-for="(video, index) in results"
+        :key="index"
+        class="w-10/12 mb-5 shadow-card"
+      >
         <VideoResult :video="video" />
       </li>
     </ul>

@@ -1,13 +1,18 @@
 <template>
-  <a>
-    <img
-      :src="`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`"
-      alt="video-thumbnail"
-    />
-    <div>
-      <h1>{{ video.title }}</h1>
-      <p>{{ video.author }} - {{ video.postDate }} - {{ video.duration }}</p>
-      <p>{{ video.description }}</p>
+  <a href="/">
+    <div class="w-auto">
+      <img
+        :src="`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`"
+        alt="video-thumbnail"
+        class="w-full"
+      />
+    </div>
+    <div class="p-2">
+      <h1 class="text-lg">{{ video.title }}</h1>
+      <p class="text-xs">
+        {{ video.author }} - {{ video.postDate }} - {{ video.duration }}
+      </p>
+      <p class="hidden md:inline-block">{{ video.description }}</p>
     </div>
   </a>
 </template>
