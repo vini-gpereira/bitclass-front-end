@@ -4,7 +4,7 @@
       <li
         v-for="(video, index) in results"
         :key="index"
-        class="w-10/12 mb-5 shadow-card"
+        class="w-full mb-5 border-b-2 border-graybits-100"
       >
         <VideoResult :video="video" />
       </li>
