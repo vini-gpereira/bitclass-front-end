@@ -3,10 +3,10 @@
     <nav
       class="items-center w-10/12 h-12 mx-auto flex-row-between md:w-8/12 md:h-32"
     >
-      <NuxtLink to="/" class="text-4xl font-fredoka text-redbits md:text-5xl"
+      <NuxtLink to="/" class="text-4xl font-fredoka text-redbits md:text-6xl"
         >BitClass</NuxtLink
       >
-      <div class="hidden text-2xl md:flex-row-between">
+      <div class="hidden text-3xl md:flex-row-between">
         <a href="https://codelab.ime.usp.br/#/" class="mr-4 nav-btn">UCL</a>
         <NuxtLink to="/about" class="ml-4 nav-btn">Sobre</NuxtLink>
       </div>

@@ -1,7 +1,7 @@
 <template>
-  <section class="w-10/12 mx-auto mt-5 text-sm md:w-9/12 md:text-xl">
+  <section class="w-10/12 mx-auto mt-5 text-sm md:w-9/12 md:text-2xl">
     <div
-      class="flex flex-row h-10 px-4 rounded-full md:px-5 bg-whitebits md:h-12"
+      class="flex flex-row h-10 px-4 rounded-full md:px-5 bg-whitebits md:h-16"
     >
       <fa-icon
         icon="search"
@@ -16,19 +16,19 @@
       <fa-icon
         v-if="searchInput"
         icon="times"
-        class="h-full text-gray-600 cursor-pointer md:mr-5"
+        class="h-full text-gray-600 cursor-pointer md:mr-5 clear-icon"
         @click="searchInput = ''"
       ></fa-icon>
       <span
         v-if="searchInput"
-        class="hidden w-px h-8 my-auto mr-5 bg-gray-400 md:inline-block"
+        class="hidden w-px h-10 my-auto mr-5 bg-gray-400 md:inline-block"
       ></span>
       <fa-icon
         icon="search"
         class="hidden h-full cursor-pointer text-redbits md:inline-block"
       ></fa-icon>
     </div>
-    <div class="mt-2 flex-row-between md:h-12 md:mt-6">
+    <div class="mt-2 flex-row-between md:h-16 md:mt-6">
       <button :class="btnsClasses.videos" @click="handleBtnClick('videos')">
         Videos
       </button>
@@ -69,6 +69,9 @@ export default {
 button {
   @apply rounded-full h-10 w-al-mid border-solid border border-redbits;
 }
+.clear-icon {
+  width: 0.8em;
+}
 .selected {
   @apply bg-redbits;
 }
@@ -78,6 +81,10 @@ button {
 @screen md {
   button {
     @apply h-full border-2;
+  }
+
+  .search-icon {
+    width: 1.2em;
   }
 }
 </style>
