@@ -1,6 +1,9 @@
 <template>
   <a>
-    <img src="../assets/images/thumbnail.jpg" alt="video-thumbnail" />
+    <img
+      :src="`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`"
+      alt="video-thumbnail"
+    />
     <div>
       <h1>{{ video.title }}</h1>
       <p>{{ video.author }} - {{ video.postDate }} - {{ video.duration }}</p>
