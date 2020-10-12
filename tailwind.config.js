@@ -19,7 +19,7 @@ module.exports = {
         mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       },
       boxShadow: {
-        bits: '0 0 10px 1px #ff4b5c',
+        card: '0 0 10px 0px #000',
       },
       width: {
         'al-mid': '49.5%',
