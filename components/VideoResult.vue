@@ -1,7 +1,7 @@
 <template>
   <a
     href="/"
-    class="flex-row duration-100 ease-linear md:flex md:hover:shadow-focus md:p-2 md:transition-shadow"
+    class="flex-row duration-200 ease-out md:flex md:hover:shadow-focus md:p-2 md:transition-shadow"
   >
     <div class="w-auto h-full border border-whitebits thumb-container">
       <img
