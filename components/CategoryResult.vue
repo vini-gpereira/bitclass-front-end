@@ -1,13 +1,32 @@
 <template>
-  <div>
-    <button @click="expandCategory">
+  <div class="mb-1">
+    <button
+      class="flex flex-row items-center justify-between w-full h-12 px-2 bg-graybits-900"
+      @click="expandCategory"
+    >
       <p>{{ category.name }}</p>
-      <fa-icon :id="`angle-icon-${id}`" icon="angle-down"></fa-icon>
+      <fa-icon
+        :id="`angle-icon-${id}`"
+        icon="angle-down"
+        class="transition-transform duration-200 ease-out rotate-0"
+      ></fa-icon>
     </button>
-    <ul :id="`category-content-${id}`">
-      <li v-for="(video, index) in category.videos" :key="index">
-        <a href="/">
-          <p>{{ video.name }}</p>
+    <ul
+      :id="`category-content-${id}`"
+      class="overflow-hidden duration-200 ease-out transition-maxh max-h-0"
+    >
+      <li
+        v-for="(video, index) in category.videos"
+        :key="index"
+        class="h-12 px-2 mt-1 bg-graybits-100"
+      >
+        <a
+          href="/"
+          class="flex flex-row items-center justify-between w-full h-full"
+        >
+          <div>
+            <p class="text-desc">{{ video.title }}</p>
+          </div>
           <p>{{ video.duration }}</p>
         </a>
       </li>
@@ -52,3 +71,15 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.text-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 1.3rem;
+  max-height: 2.6rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+</style>

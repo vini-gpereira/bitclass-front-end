@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 md:w-10/12 md:mt-16">
+  <div class="w-full mt-8 md:w-10/12 md:mt-16">
     <ul v-if="type === 'videos'" class="flex flex-col items-center">
       <li
         v-for="(video, index) in results"
@@ -9,8 +9,8 @@
         <VideoResult :video="video" />
       </li>
     </ul>
-    <ul v-else-if="type === 'categories'">
-      <li v-for="(category, index) in results" :key="index">
+    <ul v-else-if="type === 'categories'" class="px-2">
+      <li v-for="(category, index) in results" :key="index" class="w-full">
         <CategoryResult :id="index" :category="category" />
       </li>
     </ul>
