@@ -11,7 +11,7 @@
     </ul>
     <ul v-else-if="type === 'categories'">
       <li v-for="(category, index) in results" :key="index">
-        <CategoryResult :category="category" />
+        <CategoryResult :id="index" :category="category" />
       </li>
     </ul>
   </div>
