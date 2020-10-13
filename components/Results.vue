@@ -9,7 +9,7 @@
         <VideoResult :video="video" />
       </li>
     </ul>
-    <ul v-else-if="type === 'categories'" class="px-2">
+    <ul v-else-if="type === 'categories'" class="px-2 md:text-2xl">
       <li v-for="(category, index) in results" :key="index" class="w-full">
         <CategoryResult :id="index" :category="category" />
       </li>
