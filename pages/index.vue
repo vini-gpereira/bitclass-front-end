@@ -1,12 +1,13 @@
 <template>
-  <Results type="videos" :results="results" />
+  <Results :type="type" :results="results" />
 </template>
 
 <script>
 export default {
   data() {
     return {
-      results: [
+      type: 'categories',
+      videos: [
         {
           id: '3TiEPhsBrVQ',
           title: 'Introdução prática a Flutter',
@@ -35,7 +36,36 @@ export default {
             'No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!',
         },
       ],
+      categories: [
+        {
+          name: 'Componentização',
+          videos: [
+            {
+              title: 'Introdução prática a Flutter',
+              duration: '29min',
+            },
+            {
+              title: 'Svelte',
+              duration: '14min',
+            },
+          ],
+        },
+        {
+          name: 'Programação funcional',
+          videos: [
+            {
+              title: 'Concretizando expectativas: introdução ao Jest',
+              duration: '13min',
+            },
+          ],
+        },
+      ],
     }
+  },
+  computed: {
+    results() {
+      return this.type === 'videos' ? this.videos : this.categories
+    },
   },
 }
 </script>
