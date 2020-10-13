@@ -1,7 +1,7 @@
 <template>
   <div class="mb-1">
     <button
-      class="flex flex-row items-center justify-between w-full h-12 px-2 bg-graybits-900 md:h-16"
+      class="flex flex-row items-center justify-between w-full h-12 px-3 bg-graybits-900 md:h-16"
       @click="expandCategory"
     >
       <p>{{ category.name }}</p>
@@ -18,7 +18,7 @@
       <li
         v-for="(video, index) in category.videos"
         :key="index"
-        class="h-12 px-2 mt-1 bg-graybits-100 md:h-16"
+        class="h-12 px-3 mt-1 bg-graybits-100 md:h-16"
       >
         <a
           href="/"
