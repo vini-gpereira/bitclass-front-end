@@ -54,7 +54,8 @@ export default {
           name: 'Programação funcional',
           videos: [
             {
-              title: 'Concretizando expectativas: introdução ao Jest',
+              title:
+                'Concretizando expectativas: introdução ao Jest blablablablablablablabla',
               duration: '13min',
             },
           ],
