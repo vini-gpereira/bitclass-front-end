@@ -11,13 +11,13 @@
       />
     </div>
     <div class="flex-col justify-between w-full mt-2 md:mt-0 md:ml-3 md:flex">
-      <div class="lg:flex-grow">
-        <h1 class="text-lg md:text-3xl">{{ video.title }}</h1>
-        <p class="text-xs md:text-base">
+      <div class="md:flex-grow">
+        <h1 class="text-lg md:text-xl lg:text-2xl">{{ video.title }}</h1>
+        <p class="text-xs md:text-sm">
           {{ video.author }} - {{ video.postDate }} - {{ video.duration }}
         </p>
       </div>
-      <div class="flex-grow hidden lg:inline-block">
+      <div class="flex-grow hidden md:inline-block">
         <p class="w-full text-sm text-desc">
           {{ video.description }}
         </p>
