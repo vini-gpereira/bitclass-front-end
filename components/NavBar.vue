@@ -41,8 +41,10 @@ export default {
       const menuEl = document.getElementById('menu')
       if (this.isMenuActive) {
         menuEl.style.maxHeight = '0px'
+        menuEl.style.marginBottom = '0rem'
       } else {
         menuEl.style.maxHeight = menuEl.scrollHeight + 'px'
+        menuEl.style.marginBottom = '0.75rem'
       }
       this.isMenuActive = !this.isMenuActive
     },
