@@ -1,6 +1,6 @@
 export const state = () => ({
   searchText: '',
-  searchType: '',
+  searchType: 'videos',
 })
 
 export const mutations = {
