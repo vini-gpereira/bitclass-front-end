@@ -52,14 +52,21 @@ export default {
         videos: 'selected',
         categories: 'no-selected',
       },
-      searchType: 'videos',
     }
+  },
+  computed: {
+    searchType() {
+      return this.$store.state.searchType
+    },
   },
   methods: {
     handleBtnClick(newSearchType) {
+      if (newSearchType === this.searchType) return
+
       this.btnsClasses[this.searchType] = 'no-selected'
       this.btnsClasses[newSearchType] = 'selected'
-      this.searchType = newSearchType
+
+      this.$store.commit('changeSearchType', newSearchType)
     },
   },
 }

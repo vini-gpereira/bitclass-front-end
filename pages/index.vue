@@ -1,12 +1,11 @@
 <template>
-  <Results :type="type" :results="results" />
+  <Results :type="searchType" :results="results" />
 </template>
 
 <script>
 export default {
   data() {
     return {
-      type: 'categories',
       videos: [
         {
           id: '3TiEPhsBrVQ',
@@ -64,8 +63,11 @@ export default {
     }
   },
   computed: {
+    searchType() {
+      return this.$store.state.searchType
+    },
     results() {
-      return this.type === 'videos' ? this.videos : this.categories
+      return this.searchType === 'videos' ? this.videos : this.categories
     },
   },
 }
