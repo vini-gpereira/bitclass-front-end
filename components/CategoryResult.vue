@@ -4,7 +4,7 @@
       class="flex flex-row items-center justify-between w-full h-12 px-3 bg-graybits-900 md:h-16"
       @click="expandCategory"
     >
-      <p>{{ category.name }}</p>
+      <p>{{ category.label }}</p>
       <fa-icon
         :id="`angle-icon-${id}`"
         icon="angle-down"
@@ -16,7 +16,7 @@
       class="overflow-hidden duration-200 ease-out transition-maxh max-h-0"
     >
       <li
-        v-for="(video, index) in category.videos"
+        v-for="(video, index) in categoryVideos"
         :key="index"
         class="h-12 px-3 mt-1 bg-graybits-100 md:h-16"
       >
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import { getVideo } from '@/mock/api'
+
 export default {
   props: {
     id: {
@@ -49,7 +51,11 @@ export default {
   data() {
     return {
       active: false,
+      categoryVideos: [],
     }
+  },
+  mounted() {
+    this.categoryVideos = this.category.videosIds.map((id) => getVideo(id))
   },
   methods: {
     expandCategory() {
