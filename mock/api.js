@@ -4,21 +4,25 @@ export const getVideo = (id) => {
   return videos[id]
 }
 
-export const getResults = (searchType, term) => {
-  const getters = {
-    videos: getVideos,
-    categories: getCategories,
+export const getResults = (term = null) => {
+  return {
+    videos: getVideos(term),
+    categories: getCategories(term),
   }
-
-  return getters[searchType](term)
 }
 
 const getVideos = (term) => {
-  return videos.filter((video) => videoHaveTerm(video, term))
+  if (!term) return Object.values(videos)
+
+  return Object.values(videos).filter((video) => videoHaveTerm(video, term))
 }
 
 const getCategories = (term) => {
-  return categories.filter((category) => categoryHaveTerm(category, term))
+  if (!term) return Object.values(categories)
+
+  return Object.values(categories).filter((category) =>
+    categoryHaveTerm(category, term)
+  )
 }
 
 const videoHaveTerm = (video, term) => {
@@ -31,8 +35,9 @@ const videoHaveTerm = (video, term) => {
 const categoryHaveTerm = (category, term) => {
   const { label, videosIds } = category
 
-  return (
-    label.includes(term) ||
-    videosIds.reduce((id) => videoHaveTerm(videos[id], term))
-  )
+  const reducer = (accumulator, id) => {
+    return accumulator || videoHaveTerm(videos[id], term)
+  }
+
+  return label.includes(term) || videosIds.reduce(reducer, false)
 }
