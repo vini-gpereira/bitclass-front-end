@@ -29,11 +29,14 @@
       ></fa-icon>
     </div>
     <div class="mt-2 flex-row-between md:h-16 md:mt-6">
-      <button :class="btnsClasses.videos" @click="handleBtnClick('videos')">
+      <button
+        :class="searchType == 'videos' ? 'selected' : 'no-selected'"
+        @click="handleBtnClick('videos')"
+      >
         Videos
       </button>
       <button
-        :class="btnsClasses.categories"
+        :class="searchType == 'categories' ? 'selected' : 'no-selected'"
         @click="handleBtnClick('categories')"
       >
         Assuntos
@@ -48,10 +51,6 @@ export default {
   data() {
     return {
       searchInput: '',
-      btnsClasses: {
-        videos: 'selected',
-        categories: 'no-selected',
-      },
     }
   },
   computed: {
@@ -59,14 +58,13 @@ export default {
       return this.$store.state.searchType
     },
   },
+  mounted() {
+    this.searchInput = this.$route.query.term || ''
+  },
   methods: {
     handleBtnClick(newSearchType) {
-      if (newSearchType === this.searchType) return
-
-      this.btnsClasses[this.searchType] = 'no-selected'
-      this.btnsClasses[newSearchType] = 'selected'
-
-      this.$store.commit('changeSearchType', newSearchType)
+      if (newSearchType !== this.searchType)
+        this.$store.commit('changeSearchType', newSearchType)
     },
   },
 }
