@@ -27,8 +27,12 @@ const getCategories = (term) => {
 
 const videoHaveTerm = (video, term) => {
   const { author, title, description } = video
+  const lowerTerm = term.toLowerCase()
+
   return (
-    author.includes(term) || title.includes(term) || description.includes(term)
+    author.toLowerCase().includes(lowerTerm) ||
+    title.toLowerCase().includes(lowerTerm) ||
+    description.toLowerCase().includes(lowerTerm)
   )
 }
 
@@ -39,5 +43,5 @@ const categoryHaveTerm = (category, term) => {
     return accumulator || videoHaveTerm(videos[id], term)
   }
 
-  return label.includes(term) || videosIds.reduce(reducer, false)
+  return label.toLowerCase().includes(term) || videosIds.reduce(reducer, false)
 }
