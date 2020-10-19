@@ -12,6 +12,7 @@
         type="search"
         placeholder="Procure pelo conteúdo"
         class="w-full mr-3 text-black md:mr-5"
+        @keydown.enter="submitSearch"
       />
       <fa-icon
         v-if="searchInput"
@@ -26,6 +27,7 @@
       <fa-icon
         icon="search"
         class="hidden h-full cursor-pointer text-redbits md:inline-block"
+        @click="submitSearch"
       ></fa-icon>
     </div>
     <div class="mt-2 flex-row-between md:h-16 md:mt-6">
@@ -59,12 +61,30 @@ export default {
     },
   },
   mounted() {
-    this.searchInput = this.$route.query.term || ''
+    const term = this.$route.query.term || ''
+    const type = this.$route.query.type || ''
+
+    this.searchInput = term
+
+    this.$store.commit('changeSearchText', term)
+    this.$store.commit('changeSearchType', type)
   },
   methods: {
     handleBtnClick(newSearchType) {
-      if (newSearchType !== this.searchType)
+      if (newSearchType !== this.searchType) {
+        const query = this.$route.query
+
         this.$store.commit('changeSearchType', newSearchType)
+        this.$router.replace({ query: { ...query, type: newSearchType } })
+      }
+    },
+    submitSearch() {
+      this.$store.commit('changeSearchText', this.searchInput)
+
+      this.$router.push({
+        name: 'results',
+        query: { term: this.searchInput, type: this.searchType },
+      })
     },
   },
 }
