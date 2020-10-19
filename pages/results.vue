@@ -20,13 +20,13 @@ export default {
     },
   },
   mounted() {
-    const term = this.$route.query.term || ''
-    const type = this.$route.query.type || 'videos'
+    const term = this.$store.state.searchText
 
     this.resultList = getResults(term)
-
-    this.$store.commit('changeSearchText', term)
-    this.$store.commit('changeSearchType', type)
+  },
+  watchQuery(newQuery) {
+    const term = newQuery.term || ''
+    this.resultList = getResults(term)
   },
 }
 </script>
