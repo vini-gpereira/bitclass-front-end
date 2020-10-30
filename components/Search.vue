@@ -33,13 +33,13 @@
     <div class="mt-2 flex-row-between md:mt-6 search-tool">
       <button
         :class="searchType == 'videos' ? 'selected' : 'no-selected'"
-        @click="handleBtnClick('videos')"
+        @click="handleSearchTypeChange('videos')"
       >
         Videos
       </button>
       <button
         :class="searchType == 'categories' ? 'selected' : 'no-selected'"
-        @click="handleBtnClick('categories')"
+        @click="handleSearchTypeChange('categories')"
       >
         Assuntos
       </button>
@@ -70,7 +70,7 @@ export default {
     this.$store.commit('changeSearchType', type)
   },
   methods: {
-    handleBtnClick(newSearchType) {
+    handleSearchTypeChange(newSearchType) {
       if (newSearchType !== this.searchType) {
         const query = this.$route.query
 
