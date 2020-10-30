@@ -62,7 +62,7 @@ export default {
   },
   mounted() {
     const term = this.$route.query.term || ''
-    const type = this.$route.query.type || ''
+    const type = this.$route.query.type || this.searchType || ''
 
     this.searchInput = term
 
