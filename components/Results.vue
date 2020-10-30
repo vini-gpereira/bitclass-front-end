@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full mt-8 md:w-10/12 md:mt-16">
+  <div class="w-full mt-8 mb-16 md:w-10/12 md:mt-16">
     <ul v-if="type === 'videos'" class="flex flex-col items-center">
       <li
         v-for="(video, index) in results"
