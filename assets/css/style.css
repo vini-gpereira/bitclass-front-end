@@ -11,11 +11,3 @@ body {
   background-color: var(--gray);
   min-height: 100vh;
 }
-
-a:focus {
-  outline: none;
-}
-
-button:focus {
-  outline: none;
-}
