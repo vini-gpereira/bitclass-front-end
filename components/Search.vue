@@ -1,7 +1,7 @@
 <template>
-  <section class="w-10/12 mx-auto mt-5 text-sm md:w-9/12 md:text-2xl">
+  <section class="w-10/12 mx-auto mt-5 text-sm md:w-8/12 md:text-2xl">
     <div
-      class="flex flex-row h-10 px-4 rounded-full md:px-5 bg-whitebits md:h-16"
+      class="flex flex-row px-4 rounded-full md:px-5 bg-whitebits search-tool"
     >
       <fa-icon
         icon="search"
@@ -30,7 +30,7 @@
         @click="submitSearch"
       ></fa-icon>
     </div>
-    <div class="mt-2 flex-row-between md:h-16 md:mt-6">
+    <div class="mt-2 flex-row-between md:mt-6 search-tool">
       <button
         :class="searchType == 'videos' ? 'selected' : 'no-selected'"
         @click="handleBtnClick('videos')"
@@ -92,10 +92,13 @@ export default {
 
 <style scoped>
 button {
-  @apply rounded-full h-10 w-al-mid border-solid border border-redbits;
+  @apply rounded-full w-al-mid border-solid border border-redbits;
 }
 .clear-icon {
   width: 0.8em;
+}
+.search-tool {
+  @apply h-10;
 }
 .selected {
   @apply bg-redbits;
@@ -108,8 +111,8 @@ button {
     @apply h-full border-2;
   }
 
-  .search-icon {
-    width: 1.2em;
+  .search-tool {
+    height: 3.5rem;
   }
 }
 </style>
