@@ -1,6 +1,6 @@
 <template>
-  <a
-    href="/"
+  <NuxtLink
+    :to="{ path: 'watch', query: { v: video.id } }"
     class="flex-row duration-200 ease-out md:flex md:hover:shadow-focus md:p-2 md:transition-shadow"
   >
     <div class="w-auto h-full border border-whitebits thumb-container">
@@ -23,7 +23,7 @@
         </p>
       </div>
     </div>
-  </a>
+  </NuxtLink>
 </template>
 
 <script>

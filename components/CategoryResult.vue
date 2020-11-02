@@ -20,15 +20,15 @@
         :key="index"
         class="h-12 px-3 mt-1 bg-graybits-100 md:h-16"
       >
-        <a
-          href="/"
+        <NuxtLink
+          :to="{ path: 'watch', query: { v: video.id } }"
           class="flex flex-row items-center justify-between w-full h-full cursor-pointer"
         >
           <div class="mr-4">
             <p class="text-desc">{{ video.title }}</p>
           </div>
           <p>{{ video.duration }}</p>
-        </a>
+        </NuxtLink>
       </li>
     </ul>
   </div>
