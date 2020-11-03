@@ -11,6 +11,26 @@ export const getResults = (term = null) => {
   }
 }
 
+export const getSuggestions = (currentVideoId) => {
+  const suggestions = []
+
+  if (currentVideoId) {
+    Object.values(categories).forEach((category) => {
+      if (category.videosIds.includes(currentVideoId)) {
+        category.videosIds.forEach((videoId) => {
+          if (currentVideoId !== videoId) suggestions.unshift(getVideo(videoId))
+        })
+      } else {
+        suggestions.push(
+          ...category.videosIds.map((videoId) => getVideo(videoId))
+        )
+      }
+    })
+  }
+
+  return suggestions
+}
+
 const getVideos = (term) => {
   if (!term) return Object.values(videos)
 
