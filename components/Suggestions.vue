@@ -7,22 +7,12 @@
 </template>
 
 <script>
-import { getSuggestions } from '@/mock/api'
-
 export default {
   props: {
-    videoId: {
-      type: String,
+    suggestions: {
+      type: Array,
       default: null,
     },
-  },
-  data() {
-    return {
-      suggestions: null,
-    }
-  },
-  mounted() {
-    this.suggestions = getSuggestions(this.videoId)
   },
 }
 </script>
