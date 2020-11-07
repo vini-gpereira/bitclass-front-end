@@ -12,21 +12,24 @@ export const getResults = (term = null) => {
 }
 
 export const getSuggestions = (currentVideoId) => {
+  const currentVideo = getVideo(currentVideoId)
+  const videos = getVideos()
+
   const suggestions = []
 
-  if (currentVideoId) {
-    Object.values(categories).forEach((category) => {
-      if (category.videosIds.includes(currentVideoId)) {
-        category.videosIds.forEach((videoId) => {
-          if (currentVideoId !== videoId) suggestions.unshift(getVideo(videoId))
-        })
+  videos.forEach((video) => {
+    if (video.id !== currentVideoId) {
+      const videoHaveCurrentVideoCategory = currentVideo.categories.some(
+        (category) => video.categories.includes(category)
+      )
+
+      if (videoHaveCurrentVideoCategory) {
+        suggestions.unshift(video)
       } else {
-        suggestions.push(
-          ...category.videosIds.map((videoId) => getVideo(videoId))
-        )
+        suggestions.push(video)
       }
-    })
-  }
+    }
+  })
 
   return suggestions
 }
