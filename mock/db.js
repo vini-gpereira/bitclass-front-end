@@ -7,6 +7,7 @@ export const videos = {
     title: 'Programação Funcional com Elixir',
     description:
       'No vídeo de hoje o João veio falar um pouco sobre como é programação funcional usando Elixir!',
+    categories: ['functionalProgramming'],
   },
   SLoaKDflXnY: {
     id: 'SLoaKDflXnY',
@@ -16,6 +17,7 @@ export const videos = {
     title: 'Arquitetura MVC',
     description:
       'No vídeo de hoje o Guerrero veio falar um pouco sobre os fundamentos e o que é a arquitetura MVC com um exemplo prático usando Ruby on Rails!',
+    categories: ['concepts'],
   },
   B9kSR8p5ltI: {
     id: 'B9kSR8p5ltI',
@@ -25,6 +27,7 @@ export const videos = {
     title: 'Métodos de Array no JavaScript',
     description:
       'No vídeo de hoje o Erick veio falar um pouco sobre os métodos de array mais importantes no JavaScript!',
+    categories: ['programmingLanguages', 'javascript'],
   },
   '0a0lqX2pFdM': {
     id: '0a0lqX2pFdM',
@@ -34,6 +37,7 @@ export const videos = {
     title: 'Concretizando expectativas: introdução ao Jest',
     description:
       'No vídeo de hoje o João veio falar um pouco sobre testes no JavaScript dando uma noção básica do framework Jest!',
+    categories: ['jest'],
   },
   yuidwUz1uLQ: {
     id: 'yuidwUz1uLQ',
@@ -43,6 +47,7 @@ export const videos = {
     title: 'Svelte',
     description:
       'No vídeo de hoje o Ricardo veio falar um pouco sobre o Svelte, um framework web que vem se popularizando!',
+    categories: ['componentization'],
   },
   '3TiEPhsBrVQ': {
     id: '3TiEPhsBrVQ',
@@ -52,6 +57,7 @@ export const videos = {
     title: 'Introdução prática a Flutter',
     description:
       'Nesse vídeo especial de um mês da iniciativa, o Wander veio falar um pouco sobre o Flutter, mostrando uma introdução prática!',
+    categories: ['componentization', 'native'],
   },
 }
 
