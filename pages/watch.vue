@@ -25,11 +25,23 @@ export default {
     }
   },
   mounted() {
-    this.videoId = this.$route.query.v
+    const videoId = this.$route.query.v
+    this.changeSuggestions(videoId)
+  },
+  methods: {
+    changeSuggestions(videoId) {
+      if (!videoId) {
+        this.$router.push({ name: 'index' })
+        return
+      }
 
-    if (!this.videoId) this.$router.push({ name: 'index' })
-
-    this.suggestions = getSuggestions(this.videoId)
+      this.videoId = videoId
+      this.suggestions = getSuggestions(this.videoId)
+    },
+  },
+  watchQuery(newQuery) {
+    const videoId = newQuery.v
+    this.changeSuggestions(videoId)
   },
 }
 </script>
