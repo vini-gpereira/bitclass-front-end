@@ -1,6 +1,10 @@
 <template>
-  <ul>
-    <li v-for="(video, index) in suggestions" :key="index">
+  <ul class="mt-2">
+    <li
+      v-for="(video, index) in suggestions"
+      :key="index"
+      class="video-result-wrapper"
+    >
       <VideoResult :video="video" />
     </li>
   </ul>
@@ -16,3 +20,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.video-result-wrapper {
+  @apply w-full p-2 mb-2 border-b-2 border-graybits-100;
+}
+</style>
