@@ -1,16 +1,14 @@
 <template>
   <div>
-    <section class="flex flex-row justify-between px-3 mb-2 text-xl">
+    <section class="video-bar-container top-bar">
       <h1>Titulo do video</h1>
       <button class="hidden">
         <fa-icon icon="bars"></fa-icon>
       </button>
     </section>
     <Video :video-id="videoId" />
-    <section
-      class="flex flex-row items-center px-3 pb-2 mt-2 border-b-2 border-graybits-900"
-    >
-      <div class="flex flex-col">
+    <section class="video-bar-container bottom-bar">
+      <div class="author-and-date-wrapper">
         <span class="text-lg">Vinicius Pereira</span>
         <span class="text-xs">02/11/2020</span>
       </div>
@@ -33,4 +31,20 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.video-bar-container {
+  @apply flex flex-row px-3 justify-between;
+
+  &.top-bar {
+    @apply mb-2 text-xl;
+  }
+
+  &.bottom-bar {
+    @apply items-center pb-2 mt-2 border-b-2 border-graybits-900;
+  }
+
+  .author-and-date-wrapper {
+    @apply flex flex-col;
+  }
+}
+</style>

@@ -1,8 +1,7 @@
 <template>
-  <section class="video-wrapper">
+  <section class="iframe-container">
     <iframe
       :src="`https://www.youtube.com.br/embed/${videoId}`"
-      class="absolute top-0 left-0 w-full h-full"
       frameborder="0"
       width="100%"
       height="100%"
@@ -22,9 +21,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.video-wrapper {
+.iframe-container {
+  padding-bottom: 56.25%;
   @apply relative;
 
-  padding-bottom: 56.25%;
+  iframe {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
 }
 </style>
