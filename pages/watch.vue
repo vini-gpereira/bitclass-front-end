@@ -1,16 +1,7 @@
 <template>
-  <div>
-    <div>
-      <section>
-        <h1>Titulo do video</h1>
-        <fa-icon icon="bars"></fa-icon>
-      </section>
-      <Video :video-id="videoId" />
-      <Description :video-id="videoId" />
-    </div>
-    <div>
-      <Suggestions :suggestions="suggestions" />
-    </div>
+  <div class="watch-container">
+    <VideoContainer :video-id="videoId" />
+    <Suggestions :suggestions="suggestions" />
   </div>
 </template>
 
@@ -45,3 +36,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.watch-container {
+  @apply w-full mt-8;
+}
+</style>
