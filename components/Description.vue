@@ -1,5 +1,5 @@
 <template>
-  <section v-show="showDescription" class="description-container">
+  <section class="description-container">
     <section class="tabs-wrapper">
       <v-tabs
         v-model="tab"
@@ -58,10 +58,6 @@ export default {
     videoId: {
       type: String,
       default: null,
-    },
-    showDescription: {
-      type: Boolean,
-      default: false,
     },
   },
   data() {
