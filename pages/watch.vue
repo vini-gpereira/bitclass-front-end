@@ -41,4 +41,11 @@ export default {
 .watch-container {
   @apply w-full mt-8;
 }
+
+@screen md {
+  .watch-container {
+    width: 95%;
+    @apply flex flex-row;
+  }
+}
 </style>

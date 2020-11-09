@@ -78,7 +78,19 @@ export default {
 
     .tab-item-wrapper {
       max-height: 21rem;
-      @apply p-3 bg-graybits-500 overflow-scroll;
+      @apply p-3 bg-graybits-500 overflow-y-scroll;
+    }
+  }
+}
+
+@screen md {
+  .description-container {
+    height: 100%;
+
+    .tabs-items-wrapper {
+      .tab-item-wrapper {
+        max-height: 100%;
+      }
     }
   }
 }

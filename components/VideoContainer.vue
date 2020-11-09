@@ -1,18 +1,24 @@
 <template>
-  <div>
+  <div class="video-container">
     <section class="video-bar-container top-bar">
       <h1>{{ video.title }}</h1>
-      <button class="hidden">
-        <fa-icon icon="bars"></fa-icon>
-      </button>
+      <v-btn icon large color="var(--white)" class="show-suggestions-button">
+        <fa-icon icon="bars" class="fa-2x"></fa-icon>
+      </v-btn>
     </section>
     <Video :video-id="video.id" />
     <section class="video-bar-container bottom-bar">
       <div class="author-and-date-wrapper">
-        <span class="text-lg">{{ video.author }}</span>
-        <span class="text-xs">{{ video.postDate }}</span>
+        <span class="author">{{ video.author }}</span>
+        <span class="separator"> - </span>
+        <span class="date">{{ video.postDate }}</span>
       </div>
-      <v-btn icon color="var(--white)" @click="handleShowDescriptionClick">
+      <v-btn
+        icon
+        color="var(--white)"
+        class="show-description-btn"
+        @click="handleShowDescriptionClick"
+      >
         <fa-icon
           id="show-description-icon"
           icon="angle-down"
@@ -59,31 +65,100 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.video-bar-container {
-  @apply flex flex-row px-3 justify-between;
+.video-container {
+  @apply flex flex-col;
 
-  &.top-bar {
-    @apply mb-2 text-xl;
+  .video-bar-container {
+    @apply flex flex-row px-3 justify-between;
+
+    &.top-bar {
+      @apply mb-2 text-xl;
+
+      .show-suggestions-button {
+        @apply hidden;
+      }
+    }
+
+    &.bottom-bar {
+      @apply items-center pb-2 mt-2 border-b-2 border-graybits-900;
+
+      .author-and-date-wrapper {
+        @apply flex flex-col;
+
+        .author {
+          @apply text-lg;
+        }
+
+        .separator {
+          @apply hidden;
+        }
+
+        .date {
+          @apply text-xs;
+        }
+      }
+    }
   }
 
-  &.bottom-bar {
-    @apply items-center pb-2 mt-2 border-b-2 border-graybits-900;
+  .animation {
+    @apply duration-300 ease-out;
   }
 
-  .author-and-date-wrapper {
-    @apply flex flex-col;
+  .show-description-icon {
+    @apply transition-transform rotate-0;
+  }
+
+  .description-wrapper {
+    @apply overflow-hidden transition-maxh max-h-0;
   }
 }
 
-.animation {
-  @apply duration-300 ease-out;
-}
+@screen md {
+  .video-container {
+    height: 80rem;
+    @apply bg-graybits-900 p-2 mb-8 mr-1;
 
-.show-description-icon {
-  @apply transition-transform rotate-0;
-}
+    .video-bar-container {
+      @apply px-0;
 
-.description-wrapper {
-  @apply overflow-hidden transition-maxh max-h-0;
+      &.top-bar {
+        @apply text-3xl;
+
+        .show-suggestions-button {
+          @apply inline-block;
+        }
+      }
+
+      &.bottom-bar {
+        .author-and-date-wrapper {
+          @apply flex-row items-center;
+
+          .author {
+            @apply text-2xl mr-2;
+          }
+
+          .separator {
+            @apply inline-block text-2xl mr-2;
+          }
+
+          .date {
+            @apply text-2xl;
+          }
+        }
+
+        .show-description-btn {
+          @apply hidden;
+        }
+      }
+    }
+
+    .show-description-icon {
+      @apply rotate-0;
+    }
+
+    .description-wrapper {
+      @apply max-h-full;
+    }
+  }
 }
 </style>
