@@ -12,11 +12,17 @@
         <span class="text-lg">Vinicius Pereira</span>
         <span class="text-xs">02/11/2020</span>
       </div>
-      <v-btn icon color="var(--white)">
-        <fa-icon icon="angle-down" class="fa-lg"></fa-icon>
+      <v-btn icon color="var(--white)" @click="handleShowDescriptionClick">
+        <fa-icon
+          id="show-description-icon"
+          icon="angle-down"
+          class="show-description-icon animation fa-lg"
+        ></fa-icon>
       </v-btn>
     </section>
-    <Description :video-id="videoId" :show-description="true" />
+    <div id="description-wrapper" class="description-wrapper animation">
+      <Description :video-id="videoId" />
+    </div>
   </div>
 </template>
 
@@ -26,6 +32,27 @@ export default {
     videoId: {
       type: String,
       default: null,
+    },
+  },
+  data() {
+    return {
+      showDescription: false,
+    }
+  },
+  methods: {
+    handleShowDescriptionClick() {
+      const showDescIcon = document.getElementById('show-description-icon')
+      const descWrapper = document.getElementById('description-wrapper')
+
+      this.showDescription = !this.showDescription
+
+      if (this.showDescription) {
+        showDescIcon.style.transform = 'rotate(180deg)'
+        descWrapper.style.maxHeight = descWrapper.scrollHeight + 'px'
+      } else {
+        showDescIcon.style.transform = 'rotate(0)'
+        descWrapper.style.maxHeight = '0px'
+      }
     },
   },
 }
@@ -46,5 +73,17 @@ export default {
   .author-and-date-wrapper {
     @apply flex flex-col;
   }
+}
+
+.animation {
+  @apply duration-300 ease-out;
+}
+
+.show-description-icon {
+  @apply transition-transform rotate-0;
+}
+
+.description-wrapper {
+  @apply overflow-hidden transition-maxh max-h-0;
 }
 </style>
