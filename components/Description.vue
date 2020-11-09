@@ -55,9 +55,9 @@
 <script>
 export default {
   props: {
-    videoId: {
-      type: String,
-      default: null,
+    video: {
+      type: Object,
+      default: () => {},
     },
   },
   data() {

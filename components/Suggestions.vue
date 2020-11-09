@@ -1,13 +1,16 @@
 <template>
-  <ul class="mt-2">
-    <li
-      v-for="(video, index) in suggestions"
-      :key="index"
-      class="video-result-wrapper"
-    >
-      <VideoResult :video="video" />
-    </li>
-  </ul>
+  <div class="suggestions-container">
+    <h1 class="suggestions-title">Sugestões</h1>
+    <ul>
+      <li
+        v-for="(video, index) in suggestions"
+        :key="index"
+        class="video-result-wrapper"
+      >
+        <VideoResult :video="video" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -22,7 +25,17 @@ export default {
 </script>
 
 <style lang="scss">
-.video-result-wrapper {
-  @apply w-full p-2 mb-2 border-b-2 border-graybits-100;
+.suggestions-container {
+  @apply flex flex-col items-center mt-2;
+
+  .suggestions-title {
+    @apply text-2xl text-redbits;
+  }
+
+  ul {
+    .video-result-wrapper {
+      @apply w-full p-2 mb-2 border-b-2 border-graybits-100;
+    }
+  }
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div>
     <section class="video-bar-container top-bar">
-      <h1>Titulo do video</h1>
+      <h1>{{ video.title }}</h1>
       <button class="hidden">
         <fa-icon icon="bars"></fa-icon>
       </button>
     </section>
-    <Video :video-id="videoId" />
+    <Video :video-id="video.id" />
     <section class="video-bar-container bottom-bar">
       <div class="author-and-date-wrapper">
-        <span class="text-lg">Vinicius Pereira</span>
-        <span class="text-xs">02/11/2020</span>
+        <span class="text-lg">{{ video.author }}</span>
+        <span class="text-xs">{{ video.postDate }}</span>
       </div>
       <v-btn icon color="var(--white)" @click="handleShowDescriptionClick">
         <fa-icon
@@ -21,7 +21,7 @@
       </v-btn>
     </section>
     <div id="description-wrapper" class="description-wrapper animation">
-      <Description :video-id="videoId" />
+      <Description :video="video" />
     </div>
   </div>
 </template>
@@ -29,9 +29,9 @@
 <script>
 export default {
   props: {
-    videoId: {
-      type: String,
-      default: null,
+    video: {
+      type: Object,
+      default: () => {},
     },
   },
   data() {

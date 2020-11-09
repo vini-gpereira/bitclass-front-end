@@ -1,38 +1,38 @@
 <template>
-  <div class="watch-container">
-    <VideoContainer :video-id="videoId" />
+  <div v-if="video" class="watch-container">
+    <VideoContainer :video="video" />
     <Suggestions :suggestions="suggestions" />
   </div>
 </template>
 
 <script>
-import { getSuggestions } from '@/mock/api'
+import { getSuggestions, getVideo } from '@/mock/api'
 
 export default {
   data() {
     return {
-      videoId: '',
+      video: null,
       suggestions: null,
     }
   },
   mounted() {
     const videoId = this.$route.query.v
-    this.changeSuggestions(videoId)
+    this.changeVideo(videoId)
   },
   methods: {
-    changeSuggestions(videoId) {
+    changeVideo(videoId) {
       if (!videoId) {
         this.$router.push({ name: 'index' })
         return
       }
 
-      this.videoId = videoId
-      this.suggestions = getSuggestions(this.videoId)
+      this.video = getVideo(videoId)
+      this.suggestions = getSuggestions(videoId)
     },
   },
   watchQuery(newQuery) {
     const videoId = newQuery.v
-    this.changeSuggestions(videoId)
+    this.changeVideo(videoId)
   },
 }
 </script>
