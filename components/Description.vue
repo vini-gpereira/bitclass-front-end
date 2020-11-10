@@ -16,39 +16,37 @@
         </v-tab>
       </v-tabs>
     </section>
-    <section class="tabs-items-wrapper">
-      <v-tabs-items v-model="tab">
-        <v-tab-item key="description">
-          <div class="tab-item-wrapper">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu
-              fugiat nulla pariatur.
-            </p>
-          </div>
-        </v-tab-item>
-        <v-tab-item key="materials">
-          <div class="tab-item-wrapper">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </p>
-          </div>
-        </v-tab-item>
-      </v-tabs-items>
-    </section>
+    <v-tabs-items v-model="tab" class="tabs-items-container">
+      <v-tab-item key="description" class="tab-item-wrapper">
+        <div class="tab-item-container">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+      </v-tab-item>
+      <v-tab-item key="materials" class="tab-item-wrapper">
+        <div class="tab-item-container">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+        </div>
+      </v-tab-item>
+    </v-tabs-items>
   </section>
 </template>
 
@@ -70,27 +68,28 @@ export default {
 
 <style lang="scss" scoped>
 .description-container {
-  height: 25rem;
-  @apply border-b-2 border-graybits-900 flex flex-col;
+  @apply border-b-2 border-graybits-900;
 
-  .tabs-items-wrapper {
-    @apply flex-grow;
+  .tabs-items-container {
+    height: 20rem;
+    background-color: var(--gray) !important;
 
     .tab-item-wrapper {
-      max-height: 21rem;
-      @apply p-3 bg-graybits-500 overflow-y-scroll;
+      @apply h-full;
+
+      .tab-item-container {
+        @apply overflow-y-scroll h-full;
+      }
     }
   }
 }
 
 @screen md {
   .description-container {
-    height: 100%;
+    @apply h-full flex flex-col;
 
-    .tabs-items-wrapper {
-      .tab-item-wrapper {
-        max-height: 100%;
-      }
+    .tabs-items-container {
+      @apply h-full;
     }
   }
 }
