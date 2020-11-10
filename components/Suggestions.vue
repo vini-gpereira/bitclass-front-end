@@ -42,7 +42,7 @@ export default {
 @screen md {
   .suggestions-container {
     height: 80rem;
-    @apply bg-graybits-900 mt-0 p-2 mb-8 ml-1;
+    @apply bg-graybits-900 mt-0 mb-8 ml-1 p-3;
 
     .suggestions-title {
       @apply text-3xl;
