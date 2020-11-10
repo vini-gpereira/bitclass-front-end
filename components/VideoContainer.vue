@@ -116,7 +116,7 @@ export default {
 @screen md {
   .video-container {
     height: 80rem;
-    @apply bg-graybits-900 p-2 mb-8 mr-1;
+    @apply bg-graybits-900 mb-8 mr-1 p-3;
 
     .video-bar-container {
       @apply px-0;
@@ -157,7 +157,7 @@ export default {
     }
 
     .description-wrapper {
-      @apply max-h-full;
+      @apply max-h-full flex-grow;
     }
   }
 }
