@@ -7,7 +7,7 @@
         :key="index"
         class="video-result-wrapper"
       >
-        <VideoResult :video="video" />
+        <SuggestionItem :video="video" />
       </li>
     </ul>
   </div>
