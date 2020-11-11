@@ -5,7 +5,7 @@
       <li
         v-for="(video, index) in suggestions"
         :key="index"
-        class="video-result-wrapper"
+        class="suggestion-item-wrapper"
       >
         <SuggestionItem :video="video" />
       </li>
@@ -26,15 +26,17 @@ export default {
 
 <style lang="scss">
 .suggestions-container {
-  @apply flex flex-col items-center mt-2;
+  @apply flex flex-col items-center mt-2 px-3;
 
   .suggestions-title {
-    @apply text-2xl text-redbits;
+    @apply text-2xl text-redbits mb-2;
   }
 
-  ul {
-    .video-result-wrapper {
-      @apply w-full p-2 mb-2 border-b-2 border-graybits-100;
+  .suggestions-list {
+    @apply w-full;
+
+    .suggestion-item-wrapper {
+      @apply w-full mb-2 border-b-2 border-graybits-100 pb-2;
     }
   }
 }
