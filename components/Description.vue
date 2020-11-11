@@ -1,23 +1,15 @@
 <template>
   <section class="description-container">
-    <section class="tabs-wrapper">
-      <v-tabs
-        v-model="tab"
-        background-color="var(--gray)"
-        color="var(--red)"
-        dark
-        grow
-      >
-        <v-tab key="description">
-          <span class="font-semibold">Descrição</span>
-        </v-tab>
-        <v-tab key="materials">
-          <span class="font-semibold">Materiais</span>
-        </v-tab>
-      </v-tabs>
-    </section>
-    <v-tabs-items v-model="tab" class="tabs-items-container">
-      <v-tab-item key="description" class="tab-item-wrapper">
+    <v-tabs v-model="tab" color="var(--red)" class="tabs" dark grow>
+      <v-tab key="description" class="tab">
+        <span class="font-semibold">Descrição</span>
+      </v-tab>
+      <v-tab key="materials" class="tab">
+        <span class="font-semibold">Materiais</span>
+      </v-tab>
+    </v-tabs>
+    <v-tabs-items v-model="tab" class="tabs-items">
+      <v-tab-item key="description" class="tab-item">
         <div class="tab-item-container">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -34,7 +26,7 @@
           </p>
         </div>
       </v-tab-item>
-      <v-tab-item key="materials" class="tab-item-wrapper">
+      <v-tab-item key="materials" class="tab-item">
         <div class="tab-item-container">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -70,11 +62,18 @@ export default {
 .description-container {
   @apply border-b-2 border-graybits-900;
 
-  .tabs-items-container {
+  .tabs {
+    .tab {
+      background-color: var(--gray) !important;
+      border-color: var(--gray) !important;
+    }
+  }
+
+  .tabs-items {
     height: 20rem;
     background-color: var(--gray) !important;
 
-    .tab-item-wrapper {
+    .tab-item {
       @apply h-full;
 
       .tab-item-container {
@@ -88,7 +87,15 @@ export default {
   .description-container {
     @apply h-full flex flex-col;
 
-    .tabs-items-container {
+    .tabs {
+      .tab {
+        background-color: var(--dark-gray) !important;
+        border-color: var(--dark-gray) !important;
+      }
+    }
+
+    .tabs-items {
+      background-color: var(--dark-gray) !important;
       @apply h-full;
     }
   }
