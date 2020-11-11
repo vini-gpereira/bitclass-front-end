@@ -115,7 +115,8 @@ export default {
 
 @screen md {
   .video-container {
-    width: 85%;
+    width: 75%;
+    min-width: 75%;
     height: 80rem;
     @apply bg-graybits-900 mb-8 mr-1 p-3;
 
