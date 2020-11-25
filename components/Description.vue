@@ -77,13 +77,13 @@ export default {
       @apply h-full;
 
       .tab-item-container {
-        @apply overflow-y-scroll h-full;
+        @apply overflow-y-auto h-full;
       }
     }
   }
 }
 
-@screen md {
+@screen xl {
   .description-container {
     @apply h-full flex flex-col;
 

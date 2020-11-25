@@ -52,4 +52,43 @@ export default {
     }
   }
 }
+
+@screen sm {
+  .video-link-container {
+    @apply flex-row;
+
+    .image-wrapper {
+      width: 20rem;
+      min-width: 20rem;
+      @apply mr-2;
+    }
+
+    .suggestion-data-container {
+      @apply flex-grow;
+
+      h1 {
+        @apply mt-0 text-2xl;
+      }
+
+      span {
+        @apply text-lg;
+      }
+    }
+  }
+}
+
+@screen xl {
+  .video-link-container {
+    justify-content: normal;
+    @apply flex-col;
+
+    .image-wrapper {
+      @apply w-full;
+    }
+
+    .suggestion-data-container {
+      @apply w-auto;
+    }
+  }
+}
 </style>

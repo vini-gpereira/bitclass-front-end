@@ -3,7 +3,11 @@
     <section class="video-bar-container top-bar">
       <h1>{{ video.title }}</h1>
       <v-btn icon large color="var(--white)" class="show-suggestions-button">
-        <fa-icon icon="bars" class="fa-2x"></fa-icon>
+        <fa-icon
+          id="show-suggestions-icon"
+          icon="angle-right"
+          class="show-icon animation fa-2x"
+        ></fa-icon>
       </v-btn>
     </section>
     <Video :video-id="video.id" />
@@ -22,7 +26,7 @@
         <fa-icon
           id="show-description-icon"
           icon="angle-down"
-          class="show-description-icon animation fa-lg"
+          class="show-icon animation fa-lg"
         ></fa-icon>
       </v-btn>
     </section>
@@ -43,9 +47,18 @@ export default {
   data() {
     return {
       showDescription: false,
+      showSuggestions: true,
     }
   },
   methods: {
+    handleShowSuggestionsClick() {
+      const showSuggsIcon = document.getElementById('show-suggestions-icon')
+
+      this.showSuggestions = !this.showSuggestions
+
+      if (this.showSuggestions) showSuggsIcon.style.transform = 'rotate(0)'
+      else showSuggsIcon.style.transform = 'rotate(180deg)'
+    },
     handleShowDescriptionClick() {
       const showDescIcon = document.getElementById('show-description-icon')
       const descWrapper = document.getElementById('description-wrapper')
@@ -104,7 +117,7 @@ export default {
     @apply duration-300 ease-out;
   }
 
-  .show-description-icon {
+  .show-icon {
     @apply transition-transform rotate-0;
   }
 
@@ -113,12 +126,11 @@ export default {
   }
 }
 
-@screen md {
+@screen xl {
   .video-container {
-    width: 75%;
-    min-width: 75%;
+    width: 74%;
     height: 80rem;
-    @apply bg-graybits-900 mb-8 mr-1 p-3;
+    @apply bg-graybits-900 mb-8 p-3 transition-width;
 
     .video-bar-container {
       @apply px-0;

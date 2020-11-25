@@ -1,7 +1,7 @@
 <template>
   <div v-if="video" class="watch-container">
     <VideoContainer :video="video" />
-    <Suggestions :suggestions="suggestions" />
+    <Suggestions :suggestions="suggestions" :show="showSuggestions" />
   </div>
 </template>
 
@@ -13,6 +13,7 @@ export default {
     return {
       video: null,
       suggestions: null,
+      showSuggestions: true,
     }
   },
   mounted() {
@@ -29,6 +30,9 @@ export default {
       this.video = getVideo(videoId)
       this.suggestions = getSuggestions(videoId)
     },
+    changeSuggestionsDisplay() {
+      this.showSuggestions = !this.showSuggestions
+    },
   },
   watchQuery(newQuery) {
     const videoId = newQuery.v
@@ -42,10 +46,10 @@ export default {
   @apply w-full mt-8;
 }
 
-@screen md {
+@screen xl {
   .watch-container {
     width: 95%;
-    @apply flex flex-row;
+    @apply flex flex-row justify-between;
   }
 }
 </style>
