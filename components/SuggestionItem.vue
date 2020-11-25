@@ -55,7 +55,11 @@ export default {
 
 @screen sm {
   .video-link-container {
-    @apply flex-row;
+    @apply flex-row p-2;
+
+    &:hover {
+      @apply shadow-focus transition-shadow duration-200 ease-out;
+    }
 
     .image-wrapper {
       width: 20rem;
@@ -88,6 +92,14 @@ export default {
 
     .suggestion-data-container {
       @apply w-auto;
+
+      h1 {
+        @apply text-xl mt-1;
+      }
+
+      span {
+        @apply text-base;
+      }
     }
   }
 }

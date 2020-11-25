@@ -43,13 +43,13 @@ export default {
 
 <style lang="scss" scoped>
 .watch-container {
-  @apply w-full mt-8;
+  @apply flex flex-col w-full mt-8 items-center;
 }
 
 @screen xl {
   .watch-container {
     width: 95%;
-    @apply flex flex-row justify-between;
+    @apply flex-row justify-between;
   }
 }
 </style>

@@ -126,6 +126,16 @@ export default {
   }
 }
 
+@screen sm {
+  .video-container {
+    .video-bar-container {
+      &.top-bar {
+        @apply text-3xl;
+      }
+    }
+  }
+}
+
 @screen xl {
   .video-container {
     width: 74%;
@@ -136,8 +146,6 @@ export default {
       @apply px-0;
 
       &.top-bar {
-        @apply text-3xl;
-
         .show-suggestions-button {
           @apply inline-block;
         }

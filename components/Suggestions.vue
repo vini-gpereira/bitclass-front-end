@@ -40,7 +40,23 @@ export default {
     @apply w-full;
 
     .suggestion-item-wrapper {
-      @apply w-full mb-2 border-b-2 border-graybits-100 pb-2;
+      @apply w-full mb-4 border-b-2 border-graybits-900 pb-4;
+    }
+  }
+}
+
+@screen sm {
+  .suggestions-container {
+    max-width: 50rem;
+
+    .suggestions-title {
+      @apply text-3xl;
+    }
+
+    .suggestions-list {
+      .suggestion-item-wrapper {
+        @apply border-graybits-900;
+      }
     }
   }
 }
@@ -51,8 +67,10 @@ export default {
     height: 80rem;
     @apply bg-graybits-900 mt-0 mb-8 p-3 flex-grow overflow-y-auto;
 
-    .suggestions-title {
-      @apply text-3xl;
+    .suggestions-list {
+      .suggestion-item-wrapper {
+        @apply border-graybits-100;
+      }
     }
   }
 }
