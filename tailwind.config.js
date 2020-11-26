@@ -34,7 +34,7 @@ module.exports = {
         12: '3rem',
       },
       transitionProperty: {
-        height: 'height',
+        width: 'width',
         maxh: 'max-height',
       },
     },
