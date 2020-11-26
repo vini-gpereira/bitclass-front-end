@@ -1,5 +1,5 @@
 <template>
-  <div :class="['suggestions-container', show ? 'flex' : 'hidden']">
+  <div id="suggestions-container" class="suggestions-container">
     <h1 class="suggestions-title">Sugestões</h1>
     <ul class="suggestions-list">
       <li
@@ -20,17 +20,13 @@ export default {
       type: Array,
       default: null,
     },
-    show: {
-      type: Boolean,
-      default: true,
-    },
   },
 }
 </script>
 
 <style lang="scss">
 .suggestions-container {
-  @apply flex-col items-center mt-2 px-3;
+  @apply flex flex-col items-center mt-2 px-3;
 
   .suggestions-title {
     @apply text-2xl text-redbits mb-2;
@@ -63,9 +59,12 @@ export default {
 
 @screen xl {
   .suggestions-container {
+    width: 0%;
     max-width: 25%;
     height: 80rem;
-    @apply bg-graybits-900 mt-0 mb-8 p-3 flex-grow overflow-y-auto;
+    @apply bg-graybits-900 mt-0 mb-8 p-0 
+    flex-grow overflow-hidden duration-300
+    ease-out transition-width;
 
     .suggestions-list {
       .suggestion-item-wrapper {

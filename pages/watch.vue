@@ -1,7 +1,7 @@
 <template>
   <div v-if="video" class="watch-container">
     <VideoContainer :video="video" />
-    <Suggestions :suggestions="suggestions" :show="showSuggestions" />
+    <Suggestions :suggestions="suggestions" />
   </div>
 </template>
 
@@ -13,7 +13,6 @@ export default {
     return {
       video: null,
       suggestions: null,
-      showSuggestions: true,
     }
   },
   mounted() {
@@ -29,9 +28,6 @@ export default {
 
       this.video = getVideo(videoId)
       this.suggestions = getSuggestions(videoId)
-    },
-    changeSuggestionsDisplay() {
-      this.showSuggestions = !this.showSuggestions
     },
   },
   watchQuery(newQuery) {

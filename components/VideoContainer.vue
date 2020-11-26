@@ -1,12 +1,18 @@
 <template>
-  <div class="video-container">
+  <div id="video-container" class="video-container animation">
     <section class="video-bar-container top-bar">
       <h1>{{ video.title }}</h1>
-      <v-btn icon large color="var(--white)" class="show-suggestions-button">
+      <v-btn
+        icon
+        large
+        color="var(--white)"
+        class="show-suggestions-button"
+        @click="toggleSuggestions"
+      >
         <fa-icon
           id="show-suggestions-icon"
-          icon="angle-right"
-          class="show-icon animation fa-2x"
+          icon="angle-left"
+          class="rotate-0 fa-2x"
         ></fa-icon>
       </v-btn>
     </section>
@@ -21,7 +27,7 @@
         icon
         color="var(--white)"
         class="show-description-btn"
-        @click="handleShowDescriptionClick"
+        @click="toogleDescription"
       >
         <fa-icon
           id="show-description-icon"
@@ -47,19 +53,36 @@ export default {
   data() {
     return {
       showDescription: false,
-      showSuggestions: true,
+      showSuggestions: false,
     }
   },
   methods: {
-    handleShowSuggestionsClick() {
+    toggleSuggestions() {
       const showSuggsIcon = document.getElementById('show-suggestions-icon')
+      const videoContainer = document.getElementById('video-container')
+      const suggsContainer = document.getElementById('suggestions-container')
 
       this.showSuggestions = !this.showSuggestions
 
-      if (this.showSuggestions) showSuggsIcon.style.transform = 'rotate(0)'
-      else showSuggsIcon.style.transform = 'rotate(180deg)'
+      if (this.showSuggestions) {
+        showSuggsIcon.style.transform = 'rotate(180deg)'
+
+        videoContainer.style.width = '74%'
+
+        suggsContainer.style.width = '25%'
+        suggsContainer.style.padding = '0.75rem'
+        suggsContainer.style.overflow = 'auto'
+      } else {
+        showSuggsIcon.style.transform = 'rotate(0)'
+
+        videoContainer.style.width = '100%'
+
+        suggsContainer.style.width = '0%'
+        suggsContainer.style.padding = '0rem'
+        suggsContainer.style.overflow = 'hidden'
+      }
     },
-    handleShowDescriptionClick() {
+    toogleDescription() {
       const showDescIcon = document.getElementById('show-description-icon')
       const descWrapper = document.getElementById('description-wrapper')
 
@@ -110,20 +133,22 @@ export default {
           @apply text-xs;
         }
       }
+
+      .show-description-btn {
+        .show-description-icon {
+          @apply transition-transform rotate-0;
+        }
+      }
     }
-  }
-
-  .animation {
-    @apply duration-300 ease-out;
-  }
-
-  .show-icon {
-    @apply transition-transform rotate-0;
   }
 
   .description-wrapper {
     @apply overflow-hidden transition-maxh max-h-0;
   }
+}
+
+.animation {
+  @apply duration-300 ease-out;
 }
 
 @screen sm {
@@ -138,7 +163,7 @@ export default {
 
 @screen xl {
   .video-container {
-    width: 74%;
+    width: 100%;
     height: 80rem;
     @apply bg-graybits-900 mb-8 p-3 transition-width;
 
