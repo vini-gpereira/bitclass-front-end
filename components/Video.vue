@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .iframe-container {
-  padding-bottom: 56.25%;
+  padding-bottom: min(675px, 55%);
   @apply relative;
 
   iframe {

@@ -70,14 +70,12 @@ export default {
   }
 
   .tabs-items {
-    height: 20rem;
     background-color: var(--gray) !important;
 
     .tab-item {
-      @apply h-full;
-
       .tab-item-container {
-        @apply overflow-y-auto h-full;
+        height: 20rem;
+        @apply overflow-y-auto;
       }
     }
   }
