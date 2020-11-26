@@ -87,7 +87,7 @@ export default {
     @apply flex-col;
 
     .image-wrapper {
-      @apply w-full;
+      @apply w-full min-w-0;
     }
 
     .suggestion-data-container {
