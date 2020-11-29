@@ -120,7 +120,7 @@ export default {
         @apply flex;
       }
 
-      .open-menu-btn {
+      .nav-btns {
         @apply hidden;
       }
     }
