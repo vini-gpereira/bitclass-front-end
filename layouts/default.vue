@@ -1,11 +1,29 @@
 <template>
-  <div class="flex flex-col items-center text-whitebits">
+  <div class="app-container">
     <NavBar />
-    <Search />
-    <Nuxt />
+    <Nuxt class="content" />
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import '~assets/css/style.css';
+
+.app-container {
+  max-width: 1500px;
+  @apply w-full flex flex-col
+  items-center justify-center
+  text-whitebits mx-auto;
+
+  .content {
+    @apply mt-16;
+  }
+}
+
+@screen md {
+  .app-container {
+    .content {
+      @apply mt-24;
+    }
+  }
+}
 </style>
