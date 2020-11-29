@@ -1,31 +1,34 @@
 <template>
-  <div class="navbar-container">
-    <nav>
-      <NuxtLink to="/" class="home-link">BitClass</NuxtLink>
-      <div class="ucl-about-links">
-        <a href="https://codelab.ime.usp.br/#/" class="ucl-link nav-link"
-          >UCL</a
+  <nav class="navbar-container" :class="{ scrolled: !atTopOfPage }">
+    <NuxtLink to="/" class="logo">BitClass</NuxtLink>
+    <v-btn icon small class="btn open-menu-btn" @click="showMenu = !showMenu">
+      <fa-icon icon="bars" class="fa-2x"></fa-icon>
+    </v-btn>
+    <transition name="roll">
+      <div v-show="showMenu" class="nav-options">
+        <Search />
+        <section class="nav-links">
+          <NuxtLink to="/" class="nav-link home-link">
+            <span> Início </span>
+          </NuxtLink>
+          <a href="https://codelab.ime.usp.br/#/" class="ucl-link nav-link">
+            <span> UCL </span>
+          </a>
+          <NuxtLink to="/about" class="about-link nav-link">
+            <span> Sobre </span>
+          </NuxtLink>
+        </section>
+        <v-btn
+          icon
+          small
+          class="btn close-menu-btn"
+          @click="showMenu = !showMenu"
         >
-        <NuxtLink to="/about" class="about-link nav-link">Sobre</NuxtLink>
-      </div>
-      <div class="nav-btns">
-        <v-btn icon small class="open-btn">
-          <fa-icon icon="search" class="fa-2x"></fa-icon>
-        </v-btn>
-        <v-btn icon small class="open-btn" @click="openMenu">
-          <fa-icon icon="bars" class="fa-2x"></fa-icon>
+          <fa-icon icon="times" class="fa-2x"></fa-icon>
         </v-btn>
       </div>
-    </nav>
-    <ul id="menu">
-      <li>
-        <a href="https://codelab.ime.usp.br/#/" class="nav-link">UCL</a>
-      </li>
-      <li>
-        <NuxtLink to="/about" class="nav-link">Sobre</NuxtLink>
-      </li>
-    </ul>
-  </div>
+    </transition>
+  </nav>
 </template>
 
 <script>
@@ -33,100 +36,130 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      isMenuActive: false,
+      showMenu: false,
+      atTopOfPage: true,
+      windowWidth: 0,
     }
   },
-  methods: {
-    openMenu() {
-      const menuEl = document.getElementById('menu')
-
-      if (this.isMenuActive) {
-        menuEl.style.maxHeight = '0px'
-        menuEl.style.marginBottom = '0rem'
-      } else {
-        menuEl.style.maxHeight = menuEl.scrollHeight + 'px'
-        menuEl.style.marginBottom = '0.75rem'
-      }
-
-      this.isMenuActive = !this.isMenuActive
+  watch: {
+    windowWidth(newValue) {
+      if (newValue >= 768) this.showMenu = true
+      else this.showMenu = false
     },
-    openSearch() {},
+  },
+  beforeMount() {
+    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('resize', this.handleResize)
+  },
+  methods: {
+    handleScroll() {
+      if (window.pageYOffset > 0) this.atTopOfPage = false
+      else this.atTopOfPage = true
+    },
+    handleResize() {
+      this.windowWidth = window.innerWidth
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .navbar-container {
-  @apply w-full mt-4;
+  padding-left: 7px;
+  @apply w-full items-center h-16 pl-4 pr-2
+  mx-auto flex flex-row justify-between 
+  fixed top-0 z-10 bg-graybits-500;
 
-  nav {
-    width: 90%;
-    @apply items-center h-8 mx-auto flex flex-row justify-between mb-4;
+  &.scrolled {
+    box-shadow: 0 0 15px #000;
+  }
 
-    .home-link {
-      @apply text-4xl font-fredoka text-redbits;
+  .logo {
+    @apply text-4xl font-fredoka text-redbits;
+  }
+
+  .btn {
+    @apply inline-block h-10 w-10;
+
+    &.open-menu-btn {
+      @apply text-whitebits;
     }
 
-    .ucl-about-links {
-      @apply hidden text-3xl flex-row justify-between;
-
-      .ucl-link {
-        @apply mr-4;
-      }
-
-      .about-link {
-        @apply ml-4;
-      }
-    }
-
-    .nav-btns {
-      .open-btn {
-        color: var(--whitebits);
-        @apply inline-block h-10 w-10;
-      }
+    &.close-menu-btn {
+      @apply bg-whitebits text-graybits-900 mb-5;
     }
   }
 
-  ul {
-    @apply overflow-hidden duration-300 
-    ease-out max-h-0 transition-maxh
-    bg-graybits-900 mb-0;
+  .nav-options {
+    box-shadow: 0 0 15px #000;
+    @apply fixed z-10 bottom-0 left-0 
+      w-full bg-graybits-900
+      flex flex-col items-center pt-5;
 
-    li {
-      @apply w-full px-4 h-12 flex items-center text-xl border-b-2 border-graybits-100;
-
-      &:last-child {
-        @apply border-b-0;
-      }
+    .nav-links {
+      @apply w-full flex flex-col my-3;
 
       .nav-link {
-        @apply text-left w-full h-full leading-12 cursor-pointer;
+        @apply w-full text-center text-2xl
+          h-12 flex items-center justify-center;
       }
     }
   }
 }
 
+.roll-enter-active {
+  animation: slide 200ms;
+}
+
+.roll-leave-active {
+  animation: slide 200ms reverse;
+}
+
+@keyframes slide {
+  0% {
+    bottom: -50%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
 @screen md {
   .navbar-container {
-    nav {
-      width: 95%;
-      @apply h-32;
+    width: 95%;
+    @apply h-24 px-0;
 
-      .home-link {
-        @apply text-6xl;
-      }
-
-      .ucl-about-links {
-        @apply flex;
-      }
-
-      .nav-btns {
-        @apply hidden;
-      }
+    .logo {
+      font-size: 3.5rem;
+      @apply mr-10;
     }
 
-    ul {
+    .btn {
       @apply hidden;
+    }
+
+    .nav-options {
+      @apply static z-0 flex-row 
+      bg-transparent shadow-none 
+      pt-0 flex-grow;
+
+      .nav-links {
+        width: 12rem;
+        @apply flex-row justify-between ml-10;
+
+        .nav-link {
+          @apply w-auto text-3xl;
+        }
+
+        .home-link {
+          @apply hidden;
+        }
+      }
     }
   }
 }
