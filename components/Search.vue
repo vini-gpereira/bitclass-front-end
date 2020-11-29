@@ -1,49 +1,17 @@
 <template>
-  <section class="w-10/12 mx-auto mt-5 text-sm md:w-8/12 md:text-2xl">
-    <div
-      class="flex flex-row px-4 rounded-full md:px-5 bg-whitebits search-tool"
-    >
-      <fa-icon
-        icon="search"
-        class="h-full mr-3 text-redbits md:hidden"
-      ></fa-icon>
-      <input
-        v-model="searchInput"
-        type="search"
-        placeholder="Procure pelo conteúdo"
-        class="w-full mr-3 text-black md:mr-5"
-        @keydown.enter="submitSearch"
-      />
-      <fa-icon
-        v-if="searchInput"
-        icon="times"
-        class="h-full text-gray-600 cursor-pointer md:mr-5 clear-icon"
-        @click="searchInput = ''"
-      ></fa-icon>
-      <span
-        v-if="searchInput"
-        class="hidden w-px h-10 my-auto mr-5 bg-gray-400 md:inline-block"
-      ></span>
-      <fa-icon
-        icon="search"
-        class="hidden h-full cursor-pointer text-redbits md:inline-block"
-        @click="submitSearch"
-      ></fa-icon>
-    </div>
-    <div class="mt-2 flex-row-between md:mt-6 search-tool">
-      <button
-        :class="searchType == 'videos' ? 'selected' : 'no-selected'"
-        @click="handleSearchTypeChange('videos')"
-      >
-        Videos
-      </button>
-      <button
-        :class="searchType == 'categories' ? 'selected' : 'no-selected'"
-        @click="handleSearchTypeChange('categories')"
-      >
-        Assuntos
-      </button>
-    </div>
+  <section class="search-container">
+    <button class="btn search-btn">
+      <fa-icon icon="search" />
+    </button>
+    <input
+      v-model="searchInput"
+      type="search"
+      placeholder="Procure pelo conteúdo"
+      @keydown.enter="submitSearch"
+    />
+    <button v-if="searchInput" class="btn close-btn">
+      <fa-icon icon="times" @click="searchInput = ''" />
+    </button>
   </section>
 </template>
 
@@ -55,64 +23,71 @@ export default {
       searchInput: '',
     }
   },
-  computed: {
-    searchType() {
-      return this.$store.state.searchType
-    },
-  },
   mounted() {
     const term = this.$route.query.term || this.$store.state.searchText || ''
-    const type = this.$route.query.type || this.searchType || ''
 
     this.searchInput = term
 
     this.$store.commit('changeSearchText', term)
-    this.$store.commit('changeSearchType', type)
   },
   methods: {
-    handleSearchTypeChange(newSearchType) {
-      if (newSearchType !== this.searchType) {
-        const query = this.$route.query
-
-        this.$store.commit('changeSearchType', newSearchType)
-        this.$router.replace({ query: { ...query, type: newSearchType } })
-      }
-    },
     submitSearch() {
       this.$store.commit('changeSearchText', this.searchInput)
 
       this.$router.push({
         name: 'results',
-        query: { term: this.searchInput, type: this.searchType },
+        query: { term: this.searchInput },
       })
     },
   },
 }
 </script>
 
-<style scoped>
-button {
-  @apply rounded-full w-al-mid border-solid border border-redbits;
-}
-.clear-icon {
-  width: 0.8em;
-}
-.search-tool {
-  @apply h-10;
-}
-.selected {
-  @apply bg-redbits;
-}
-.no-selected {
-  @apply bg-transparent text-redbits;
-}
-@screen md {
-  button {
-    @apply h-full border-2;
+<style lang="scss">
+.search-container {
+  width: 90%;
+  max-width: 40rem;
+  height: 2.25rem;
+  @apply bg-whitebits rounded-full flex flex-row items-center pl-2 pr-3;
+
+  .btn {
+    @apply w-6;
   }
 
-  .search-tool {
-    height: 3.5rem;
+  .search-btn {
+    @apply text-redbits mr-1;
+  }
+
+  .close-btn {
+    @apply hidden text-graybits-900;
+  }
+
+  input {
+    @apply h-full text-graybits-900 flex-grow;
+  }
+}
+
+@screen md {
+  .search-container {
+    height: 2.75rem;
+    @apply mx-auto pl-3 pr-1;
+
+    input {
+      @apply text-xl order-1;
+    }
+
+    .btn {
+      @apply text-2xl w-10 h-10;
+    }
+
+    .close-btn {
+      border-right: solid 1px #838383;
+      @apply inline-block order-2;
+    }
+
+    .search-btn {
+      @apply order-3;
+    }
   }
 }
 </style>
