@@ -7,7 +7,7 @@
       </v-btn>
       <transition name="roll">
         <div v-show="showMenu" class="nav-options">
-          <Search :hide-menu="windowWidth < 768 ? toogleMenu : () => false" />
+          <Search :hide-menu="isDesktop ? () => {} : toogleMenu" />
           <section class="nav-links">
             <NuxtLink
               to="/"
@@ -50,14 +50,17 @@ export default {
       windowWidth: 0,
     }
   },
+  computed: {
+    isDesktop() {
+      return this.windowWidth >= 768
+    },
+  },
+  mounted() {
+    this.handleResize()
+  },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleResize)
-    this.handleResize()
-  },
-  destroyed() {
-    window.removeEventListener('scroll', this.handleScroll)
-    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     handleScroll() {
