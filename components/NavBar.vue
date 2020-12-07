@@ -9,7 +9,7 @@
         <div v-show="showMenu" class="nav-options">
           <Search
             :hide-menu="
-              windowWidth > 768 ? () => (showMenu = !showMenu) : () => false
+              windowWidth < 768 ? () => (showMenu = !showMenu) : () => false
             "
           />
           <section class="nav-links">
