@@ -56,7 +56,7 @@ export default {
     tab(newTab) {
       const type = types[newTab]
 
-      this.$store.commit('changeSearchText', type)
+      this.$store.commit('changeSearchType', type)
 
       this.$router.push({
         query: { ...this.$route.query, type },
@@ -66,7 +66,7 @@ export default {
   mounted() {
     const type = this.$route.query.type || this.$store.state.searchType
 
-    this.$store.commit('changeSearchText', type)
+    this.$store.commit('changeSearchType', type)
 
     this.tab = types.indexOf(type)
   },
