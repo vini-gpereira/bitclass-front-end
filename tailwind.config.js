@@ -19,7 +19,7 @@ module.exports = {
         mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       },
       boxShadow: {
-        focus: '0 0 10px 0px #000',
+        focus: '0 0 15px #000',
       },
       width: {
         'al-mid': '49.5%',
