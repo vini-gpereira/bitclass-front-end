@@ -7,7 +7,7 @@
         :key="index"
         class="suggestion-item-wrapper"
       >
-        <SuggestionItem :video="video" />
+        <SuggestionItem v-scroll-to="'#app'" :video="video" />
       </li>
     </ul>
   </div>
