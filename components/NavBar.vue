@@ -8,13 +8,25 @@
       <div v-show="showMenu" class="nav-options">
         <Search />
         <section class="nav-links">
-          <NuxtLink to="/" class="nav-link home-link">
+          <NuxtLink
+            to="/"
+            class="nav-link home-link"
+            @click="showMenu = !showMenu"
+          >
             <span> Início </span>
           </NuxtLink>
-          <a href="https://codelab.ime.usp.br/#/" class="ucl-link nav-link">
+          <a
+            href="https://codelab.ime.usp.br/#/"
+            class="ucl-link nav-link"
+            @click="showMenu = !showMenu"
+          >
             <span> UCL </span>
           </a>
-          <NuxtLink to="/about" class="about-link nav-link">
+          <NuxtLink
+            to="/about"
+            class="about-link nav-link"
+            @click="showMenu = !showMenu"
+          >
             <span> Sobre </span>
           </NuxtLink>
         </section>
