@@ -1,15 +1,17 @@
 <template>
   <section class="description-container">
-    <v-tabs v-model="tab" color="var(--red)" class="tabs" dark grow>
-      <v-tab key="description" class="tab">
-        <span class="font-semibold">Descrição</span>
-      </v-tab>
-      <v-tab key="materials" class="tab">
-        <span class="font-semibold">Materiais</span>
-      </v-tab>
+    <v-tabs
+      v-model="tab"
+      background-color="var(--gray)"
+      color="var(--red)"
+      class="tabs"
+    >
+      <v-tabs-slider color="var(--red)"></v-tabs-slider>
+      <v-tab active-class="active-tab" class="tab">Descrição</v-tab>
+      <v-tab active-class="active-tab" class="tab">Materiais</v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab" class="tabs-items">
-      <v-tab-item key="description" class="tab-item">
+      <v-tab-item class="tab-item">
         <div class="tab-item-container">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -26,7 +28,7 @@
           </p>
         </div>
       </v-tab-item>
-      <v-tab-item key="materials" class="tab-item">
+      <v-tab-item class="tab-item">
         <div class="tab-item-container">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -60,17 +62,23 @@ export default {
 
 <style lang="scss" scoped>
 .description-container {
-  @apply border-b-2 border-graybits-900;
+  @apply flex flex-col items-center;
 
   .tabs {
+    @apply w-auto mb-2;
+
     .tab {
-      background-color: var(--gray) !important;
-      border-color: var(--gray) !important;
+      color: var(--white) !important;
+      @apply normal-case text-base;
+    }
+
+    .active-tab {
+      color: var(--red) !important;
     }
   }
 
   .tabs-items {
-    background-color: var(--gray) !important;
+    @apply bg-graybits-500;
 
     .tab-item {
       .tab-item-container {
@@ -81,19 +89,25 @@ export default {
   }
 }
 
+@screen sm {
+  .description-container {
+    .tabs {
+      @apply w-full;
+    }
+  }
+}
+
 @screen xl {
   .description-container {
-    @apply h-full flex flex-col;
+    @apply h-full;
 
     .tabs {
       .tab {
-        background-color: var(--dark-gray) !important;
-        border-color: var(--dark-gray) !important;
+        @apply text-lg;
       }
     }
 
     .tabs-items {
-      background-color: var(--dark-gray) !important;
       @apply h-full;
     }
   }

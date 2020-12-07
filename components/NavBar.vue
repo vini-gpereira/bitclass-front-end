@@ -70,13 +70,12 @@ export default {
 
 <style lang="scss" scoped>
 .navbar-container {
-  padding-left: 7px;
-  @apply w-full items-center h-16 pl-4 pr-2
+  @apply w-full items-center h-16 pr-2 pl-4
   mx-auto flex flex-row justify-between 
   fixed top-0 z-10 bg-graybits-500;
 
   &.scrolled {
-    box-shadow: 0 0 15px #000;
+    @apply shadow-focus;
   }
 
   .logo {
@@ -96,9 +95,8 @@ export default {
   }
 
   .nav-options {
-    box-shadow: 0 0 15px #000;
     @apply fixed z-10 bottom-0 left-0 
-      w-full bg-graybits-900
+      w-full bg-graybits-900 shadow-focus
       flex flex-col items-center pt-5;
 
     .nav-links {
@@ -131,8 +129,7 @@ export default {
 
 @screen md {
   .navbar-container {
-    width: 95%;
-    @apply h-24 px-0;
+    @apply h-24 px-8;
 
     .logo {
       font-size: 3.5rem;
@@ -144,16 +141,16 @@ export default {
     }
 
     .nav-options {
-      @apply static z-0 flex-row 
+      @apply static z-0 flex flex-row 
       bg-transparent shadow-none 
-      pt-0 flex-grow;
+      pt-0 flex-grow justify-between;
 
       .nav-links {
-        width: 12rem;
-        @apply flex-row justify-between ml-10;
+        min-width: 10rem;
+        @apply w-40 flex-row justify-between;
 
         .nav-link {
-          @apply w-auto text-3xl;
+          @apply w-auto text-2xl;
         }
 
         .home-link {

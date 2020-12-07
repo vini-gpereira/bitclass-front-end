@@ -105,7 +105,7 @@ export default {
   @apply flex flex-col;
 
   .video-bar-container {
-    @apply flex flex-row px-3 justify-between;
+    @apply flex flex-row px-3 justify-between items-center;
 
     &.top-bar {
       @apply mb-2 text-xl;
@@ -143,7 +143,8 @@ export default {
   }
 
   .description-wrapper {
-    @apply overflow-hidden transition-maxh max-h-0;
+    @apply overflow-hidden transition-maxh
+    max-h-0 border-b-2 border-graybits-900;
   }
 }
 
@@ -155,7 +156,7 @@ export default {
   .video-container {
     .video-bar-container {
       &.top-bar {
-        @apply text-3xl;
+        @apply text-2xl;
       }
     }
   }
@@ -165,7 +166,7 @@ export default {
   .video-container {
     width: 100%;
     height: 80rem;
-    @apply bg-graybits-900 mb-8 p-3 transition-width;
+    @apply mb-8 transition-width;
 
     .video-bar-container {
       @apply px-0;

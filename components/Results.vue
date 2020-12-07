@@ -3,27 +3,27 @@
     <v-tabs
       v-model="tab"
       background-color="var(--gray)"
-      color="var(--white)"
+      color="var(--red)"
       class="tabs"
     >
       <v-tabs-slider color="var(--red)"></v-tabs-slider>
       <v-tab active-class="active-tab" class="tab">Videos</v-tab>
       <v-tab active-class="active-tab" class="tab">Categories</v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab">
+    <v-tabs-items v-model="tab" class="tabs-items">
       <v-tab-item>
         <ul class="flex flex-col items-center">
           <li
             v-for="(video, index) in results['videos']"
             :key="index"
-            class="w-full p-2 mb-2 border-b-2 border-graybits-100 md:p-0 md:pb-6 md:mb-6"
+            class="w-full pb-2 mb-2 border-b-2 border-graybits-100 md:p-0 md:pb-6 md:mb-6"
           >
             <VideoResult :video="video" />
           </li>
         </ul>
       </v-tab-item>
       <v-tab-item>
-        <ul class="px-2 md:text-2xl">
+        <ul class="md:text-2xl">
           <li
             v-for="(category, index) in results['categories']"
             :key="index"
@@ -79,7 +79,7 @@ export default {
   @apply flex flex-col items-center justify-center mb-16;
 
   .tabs {
-    @apply w-auto;
+    @apply w-auto mb-4;
 
     .tab {
       color: var(--white) !important;
@@ -89,6 +89,10 @@ export default {
     .active-tab {
       color: var(--red) !important;
     }
+  }
+
+  .tabs-items {
+    @apply w-full bg-graybits-500;
   }
 }
 

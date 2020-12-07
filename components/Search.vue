@@ -1,16 +1,16 @@
 <template>
   <section class="search-container">
-    <button class="btn search-btn">
-      <fa-icon icon="search" />
-    </button>
     <input
       v-model="searchInput"
       type="search"
       placeholder="Procure pelo conteúdo"
       @keydown.enter="submitSearch"
     />
-    <button v-if="searchInput" class="btn close-btn">
+    <button v-if="searchInput" class="btn close-btn" @click="searchInput = ''">
       <fa-icon icon="times" @click="searchInput = ''" />
+    </button>
+    <button class="btn search-btn" @click="submitSearch">
+      <fa-icon icon="search" />
     </button>
   </section>
 </template>
@@ -36,7 +36,7 @@ export default {
 
       this.$router.push({
         name: 'results',
-        query: { term: this.searchInput },
+        query: { ...this.$route.query, term: this.searchInput },
       })
     },
   },
@@ -48,45 +48,37 @@ export default {
   width: 90%;
   max-width: 40rem;
   height: 2.25rem;
-  @apply bg-whitebits rounded-full flex flex-row items-center pl-2 pr-3;
+  @apply bg-whitebits rounded-full flex flex-row items-center pl-2 pr-1;
 
   .btn {
-    @apply w-6;
+    @apply h-6 flex items-center justify-center px-3;
   }
 
   .search-btn {
-    @apply text-redbits mr-1;
+    @apply text-redbits;
   }
 
   .close-btn {
-    @apply hidden text-graybits-900;
+    border-right: solid 1px #838383;
+    @apply text-graybits-100;
   }
 
   input {
-    @apply h-full text-graybits-900 flex-grow;
+    @apply h-full text-graybits-900 flex-grow px-1;
   }
 }
 
 @screen md {
   .search-container {
     height: 2.75rem;
-    @apply mx-auto pl-3 pr-1;
+    @apply w-auto max-w-none pl-3 pr-1 mr-10 flex-grow;
 
     input {
-      @apply text-xl order-1;
+      @apply text-xl;
     }
 
     .btn {
-      @apply text-2xl w-10 h-10;
-    }
-
-    .close-btn {
-      border-right: solid 1px #838383;
-      @apply inline-block order-2;
-    }
-
-    .search-btn {
-      @apply order-3;
+      @apply text-2xl h-10;
     }
   }
 }

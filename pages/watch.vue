@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .watch-container {
-  @apply flex flex-col w-full mt-8 items-center;
+  @apply flex flex-col w-full items-center;
 }
 
 @screen xl {

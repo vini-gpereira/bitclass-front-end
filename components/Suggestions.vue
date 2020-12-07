@@ -26,10 +26,10 @@ export default {
 
 <style lang="scss">
 .suggestions-container {
-  @apply flex flex-col items-center mt-2 px-3;
+  @apply flex flex-col items-center px-3;
 
   .suggestions-title {
-    @apply text-2xl text-redbits mb-2;
+    @apply text-2xl text-redbits my-2;
   }
 
   .suggestions-list {
@@ -65,6 +65,10 @@ export default {
     @apply bg-graybits-900 mt-0 mb-8 p-0 
     flex-grow overflow-hidden duration-300
     ease-out transition-width;
+
+    .suggestions-title {
+      @apply mt-0 mb-2;
+    }
 
     .suggestions-list {
       .suggestion-item-wrapper {
