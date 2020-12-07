@@ -9,7 +9,7 @@
 @import '~assets/css/style.css';
 
 .app-container {
-  max-width: 1500px;
+  max-width: 1920px;
   @apply w-full flex flex-col
   items-center justify-center
   text-whitebits mx-auto;
