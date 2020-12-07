@@ -6,12 +6,12 @@
     </v-btn>
     <transition name="roll">
       <div v-show="showMenu" class="nav-options">
-        <Search />
+        <Search :hide-menu="() => (showMenu = !showMenu)" />
         <section class="nav-links">
           <NuxtLink
             to="/"
             class="nav-link home-link"
-            @click="showMenu = !showMenu"
+            @click.native="showMenu = !showMenu"
           >
             <span> Início </span>
           </NuxtLink>
@@ -25,7 +25,7 @@
           <NuxtLink
             to="/about"
             class="about-link nav-link"
-            @click="showMenu = !showMenu"
+            @click.native="showMenu = !showMenu"
           >
             <span> Sobre </span>
           </NuxtLink>

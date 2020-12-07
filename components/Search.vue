@@ -18,6 +18,12 @@
 <script>
 export default {
   name: 'Search',
+  props: {
+    hideMenu: {
+      type: Function,
+      default: () => {},
+    },
+  },
   data() {
     return {
       searchInput: '',
@@ -38,6 +44,8 @@ export default {
         name: 'results',
         query: { ...this.$route.query, term: this.searchInput },
       })
+
+      this.hideMenu()
     },
   },
 }
