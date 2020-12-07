@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div id="app" class="app-container">
     <NavBar />
     <Nuxt class="content" />
   </div>
