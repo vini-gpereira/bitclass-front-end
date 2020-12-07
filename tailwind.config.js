@@ -15,8 +15,8 @@ module.exports = {
         whitebits: '#f5f5f5',
       },
       fontFamily: {
-        fredoka: ['Fredoka One', 'cursive'],
-        mont: ['Montserrat', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+        fredoka: ['"Fredoka One"', 'cursive'],
+        mont: ['"Montserrat"', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
       },
       boxShadow: {
         focus: '0 0 15px #000',
