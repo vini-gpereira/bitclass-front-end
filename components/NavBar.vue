@@ -2,45 +2,36 @@
   <div class="navbar-wrapper">
     <nav class="navbar-container" :class="{ scrolled: !atTopOfPage }">
       <NuxtLink to="/" class="logo">BitClass</NuxtLink>
-      <v-btn icon small class="btn open-menu-btn" @click="showMenu = !showMenu">
+      <v-btn icon small class="btn open-menu-btn" @click="toogleMenu">
         <fa-icon icon="bars" class="fa-2x"></fa-icon>
       </v-btn>
       <transition name="roll">
         <div v-show="showMenu" class="nav-options">
-          <Search
-            :hide-menu="
-              windowWidth < 768 ? () => (showMenu = !showMenu) : () => false
-            "
-          />
+          <Search :hide-menu="windowWidth < 768 ? toogleMenu : () => false" />
           <section class="nav-links">
             <NuxtLink
               to="/"
               class="nav-link home-link"
-              @click.native="showMenu = !showMenu"
+              @click.native="toogleMenu"
             >
               <span> Início </span>
             </NuxtLink>
             <a
               href="https://codelab.ime.usp.br/#/"
               class="ucl-link nav-link"
-              @click="showMenu = !showMenu"
+              @click="toogleMenu"
             >
               <span> UCL </span>
             </a>
             <NuxtLink
               to="/about"
               class="about-link nav-link"
-              @click.native="showMenu = !showMenu"
+              @click.native="toogleMenu"
             >
               <span> Sobre </span>
             </NuxtLink>
           </section>
-          <v-btn
-            icon
-            small
-            class="btn close-menu-btn"
-            @click="showMenu = !showMenu"
-          >
+          <v-btn icon small class="btn close-menu-btn" @click="toogleMenu">
             <fa-icon icon="times" class="fa-2x"></fa-icon>
           </v-btn>
         </div>
@@ -59,12 +50,6 @@ export default {
       windowWidth: 0,
     }
   },
-  watch: {
-    windowWidth(newValue) {
-      if (newValue >= 768) this.showMenu = true
-      else this.showMenu = false
-    },
-  },
   beforeMount() {
     window.addEventListener('scroll', this.handleScroll)
     window.addEventListener('resize', this.handleResize)
@@ -80,7 +65,15 @@ export default {
       else this.atTopOfPage = true
     },
     handleResize() {
-      this.windowWidth = window.innerWidth
+      const windowWidth = window.innerWidth
+
+      if (windowWidth >= 768) this.showMenu = true
+      else this.showMenu = false
+
+      this.windowWidth = windowWidth
+    },
+    toogleMenu() {
+      if (this.windowWidth < 768) this.showMenu = !this.showMenu
     },
   },
 }
