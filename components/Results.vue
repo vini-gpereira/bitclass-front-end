@@ -92,7 +92,8 @@ export default {
   }
 
   .tabs-items {
-    @apply w-full bg-graybits-500;
+    background-color: var(--gray) !important;
+    @apply w-full;
   }
 }
 

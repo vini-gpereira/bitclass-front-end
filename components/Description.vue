@@ -78,6 +78,7 @@ export default {
   }
 
   .tabs-items {
+    background-color: var(--gray) !important;
     @apply bg-graybits-500;
 
     .tab-item {
