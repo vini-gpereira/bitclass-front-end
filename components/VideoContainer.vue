@@ -196,7 +196,7 @@ export default {
   }
 
   .description-wrapper {
-    @apply max-h-full flex-grow;
+    @apply max-h-full border-b-0 flex-grow;
   }
 }
 </style>
