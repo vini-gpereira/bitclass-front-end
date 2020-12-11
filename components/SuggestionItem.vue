@@ -28,56 +28,55 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .video-link-container {
   @apply flex flex-col;
+}
 
-  .image-wrapper {
-    @apply w-full flex flex-col border border-whitebits;
+.image-wrapper {
+  @apply w-full flex flex-col border border-whitebits;
+}
+.image-wrapper img {
+  @apply w-full;
+}
 
-    img {
-      @apply w-full;
-    }
-  }
+.suggestion-data-container {
+  @apply flex flex-col;
+}
 
-  .suggestion-data-container {
-    @apply flex flex-col;
+.suggestion-data-container h1 {
+  @apply text-xl mt-1;
+}
 
-    h1 {
-      @apply text-xl mt-1;
-    }
-
-    span {
-      @apply text-base;
-    }
-  }
+.suggestion-data-container span {
+  @apply text-base;
 }
 
 @screen sm {
   .video-link-container {
     @apply flex-row p-2;
+  }
 
-    &:hover {
-      @apply shadow-focus transition-shadow duration-200 ease-out;
-    }
+  .video-link-container:hover {
+    @apply shadow-focus transition-shadow duration-200 ease-out;
+  }
 
-    .image-wrapper {
-      width: 20rem;
-      min-width: 20rem;
-      @apply mr-2;
-    }
+  .image-wrapper {
+    width: 20rem;
+    min-width: 20rem;
+    @apply mr-2;
+  }
 
-    .suggestion-data-container {
-      @apply flex-grow;
+  .suggestion-data-container {
+    @apply flex-grow;
+  }
 
-      h1 {
-        @apply mt-0 text-2xl;
-      }
+  .suggestion-data-container h1 {
+    @apply mt-0 text-2xl;
+  }
 
-      span {
-        @apply text-lg;
-      }
-    }
+  .suggestion-data-container span {
+    @apply text-lg;
   }
 }
 
@@ -85,22 +84,22 @@ export default {
   .video-link-container {
     justify-content: normal;
     @apply flex-col;
+  }
 
-    .image-wrapper {
-      @apply w-full min-w-0;
-    }
+  .image-wrapper {
+    @apply w-full min-w-0;
+  }
 
-    .suggestion-data-container {
-      @apply w-auto;
+  .suggestion-data-container {
+    @apply w-auto;
+  }
 
-      h1 {
-        @apply text-xl mt-1;
-      }
+  .suggestion-data-container h1 {
+    @apply text-xl mt-1;
+  }
 
-      span {
-        @apply text-base;
-      }
-    }
+  .suggestion-data-container span {
+    @apply text-base;
   }
 }
 </style>

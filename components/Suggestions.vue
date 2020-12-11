@@ -1,6 +1,6 @@
 <template>
   <div id="suggestions-container" class="suggestions-container">
-    <h1 class="suggestions-title">Sugestões</h1>
+    <h1 class="suggestions-title">Veja também!</h1>
     <ul class="suggestions-list">
       <li
         v-for="(video, index) in suggestions"
@@ -24,36 +24,34 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .suggestions-container {
   @apply flex flex-col items-center px-3;
+}
 
-  .suggestions-title {
-    @apply text-2xl text-redbits my-2;
-  }
+.suggestions-title {
+  @apply text-2xl text-redbits my-2;
+}
 
-  .suggestions-list {
-    @apply w-full;
+.suggestions-list {
+  @apply w-full;
+}
 
-    .suggestion-item-wrapper {
-      @apply w-full mb-4 border-b-2 border-graybits-900 pb-4;
-    }
-  }
+.suggestion-item-wrapper {
+  @apply w-full mb-4 border-b-2 border-graybits-900 pb-4;
 }
 
 @screen sm {
   .suggestions-container {
     max-width: 50rem;
+  }
 
-    .suggestions-title {
-      @apply text-3xl;
-    }
+  .suggestions-title {
+    @apply text-3xl;
+  }
 
-    .suggestions-list {
-      .suggestion-item-wrapper {
-        @apply border-graybits-900;
-      }
-    }
+  .suggestion-item-wrapper {
+    @apply border-graybits-900;
   }
 }
 
@@ -65,16 +63,14 @@ export default {
     @apply bg-graybits-900 mt-0 mb-8 p-0 
     flex-grow overflow-hidden duration-300
     ease-out transition-width;
+  }
 
-    .suggestions-title {
-      @apply mt-0 mb-2;
-    }
+  .suggestions-title {
+    @apply mt-0 mb-2;
+  }
 
-    .suggestions-list {
-      .suggestion-item-wrapper {
-        @apply border-graybits-100;
-      }
-    }
+  .suggestion-item-wrapper {
+    @apply border-graybits-100;
   }
 }
 </style>

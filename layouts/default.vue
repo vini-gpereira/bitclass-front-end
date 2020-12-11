@@ -22,7 +22,7 @@
 @screen md {
   .app-container {
     .content {
-      @apply mt-24;
+      margin-top: 7rem;
     }
   }
 }
