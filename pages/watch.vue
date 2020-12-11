@@ -37,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .watch-container {
   @apply flex flex-col w-full items-center;
 }

@@ -51,43 +51,43 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped>
 .search-container {
   width: 90%;
   max-width: 40rem;
   height: 2.25rem;
   @apply bg-whitebits rounded-full flex flex-row items-center pl-2 pr-1;
+}
 
-  .btn {
-    @apply h-6 flex items-center justify-center px-3;
-  }
+.search-container input {
+  @apply h-full text-graybits-900 flex-grow px-1;
+}
 
-  .search-btn {
-    @apply text-redbits;
-  }
+.btn {
+  @apply h-6 flex items-center justify-center px-3;
+}
 
-  .close-btn {
-    border-right: solid 1px #838383;
-    @apply text-graybits-100;
-  }
+.search-btn {
+  @apply text-redbits;
+}
 
-  input {
-    @apply h-full text-graybits-900 flex-grow px-1;
-  }
+.close-btn {
+  border-right: solid 1px #838383;
+  @apply text-graybits-100;
 }
 
 @screen md {
   .search-container {
     height: 2.75rem;
     @apply w-auto max-w-none pl-3 pr-1 mr-10 flex-grow;
+  }
 
-    input {
-      @apply text-xl;
-    }
+  .search-container input {
+    @apply text-xl;
+  }
 
-    .btn {
-      @apply text-2xl h-10;
-    }
+  .btn {
+    @apply text-2xl h-10;
   }
 }
 </style>

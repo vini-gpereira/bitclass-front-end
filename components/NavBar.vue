@@ -82,50 +82,50 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .navbar-wrapper {
   @apply fixed top-0 z-10 bg-graybits-500 w-full;
+}
 
-  .navbar-container {
-    max-width: 1920px;
-    @apply w-full items-center h-16 pr-2 pl-4
-    mx-auto flex flex-row justify-between;
+.navbar-container {
+  max-width: 1920px;
+  @apply w-full items-center h-16 pr-2 pl-4
+  mx-auto flex flex-row justify-between;
+}
 
-    &.scrolled {
-      @apply shadow-focus;
-    }
+.scrolled {
+  @apply shadow-focus;
+}
 
-    .logo {
-      @apply text-4xl font-fredoka text-redbits;
-    }
+.logo {
+  @apply text-4xl font-fredoka text-redbits;
+}
 
-    .btn {
-      @apply inline-block h-10 w-10;
+.btn {
+  @apply inline-block h-10 w-10;
+}
 
-      &.open-menu-btn {
-        @apply text-whitebits;
-      }
+.open-menu-btn {
+  @apply text-whitebits;
+}
 
-      &.close-menu-btn {
-        @apply bg-whitebits text-graybits-900 mb-5;
-      }
-    }
+.close-menu-btn {
+  @apply bg-whitebits text-graybits-900 mb-5;
+}
 
-    .nav-options {
-      @apply fixed z-10 bottom-0 left-0 
-        w-full bg-graybits-900 shadow-focus
-        flex flex-col items-center pt-5;
+.nav-options {
+  @apply fixed z-10 bottom-0 left-0
+  w-full bg-graybits-900 shadow-focus
+  flex flex-col items-center pt-5;
+}
 
-      .nav-links {
-        @apply w-full flex flex-col my-3;
+.nav-links {
+  @apply w-full flex flex-col my-3;
+}
 
-        .nav-link {
-          @apply w-full text-center text-2xl
-            h-12 flex items-center justify-center;
-        }
-      }
-    }
-  }
+.nav-link {
+  @apply w-full text-center text-2xl
+  h-12 flex items-center justify-center;
 }
 
 .roll-enter-active {
@@ -146,38 +146,36 @@ export default {
 }
 
 @screen md {
-  .navbar-wrapper {
-    .navbar-container {
-      @apply h-24 px-8;
+  .navbar-container {
+    @apply h-24 px-8;
+  }
 
-      .logo {
-        font-size: 3.5rem;
-        @apply mr-10;
-      }
+  .logo {
+    font-size: 3.5rem;
+    @apply mr-10;
+  }
 
-      .btn {
-        @apply hidden;
-      }
+  .btn {
+    @apply hidden;
+  }
 
-      .nav-options {
-        @apply static z-0 flex flex-row 
-        bg-transparent shadow-none 
+  .nav-options {
+    @apply static z-0 flex flex-row
+        bg-transparent shadow-none
         pt-0 flex-grow justify-between;
+  }
 
-        .nav-links {
-          min-width: 10rem;
-          @apply w-40 flex-row justify-between;
+  .nav-links {
+    min-width: 10rem;
+    @apply w-40 flex-row justify-between;
+  }
 
-          .nav-link {
-            @apply w-auto text-2xl;
-          }
+  .nav-link {
+    @apply w-auto text-2xl;
+  }
 
-          .home-link {
-            @apply hidden;
-          }
-        }
-      }
-    }
+  .home-link {
+    @apply hidden;
   }
 }
 </style>

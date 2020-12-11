@@ -20,13 +20,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .iframe-container {
   padding-bottom: min(625px, 55%);
   @apply relative;
+}
 
-  iframe {
-    @apply absolute top-0 left-0 w-full h-full;
-  }
+.iframe-container iframe {
+  @apply absolute top-0 left-0 w-full h-full;
 }
 </style>

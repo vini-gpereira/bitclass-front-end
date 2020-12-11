@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 @import '~/assets/css/style.css';
 
 .app-container {
@@ -13,17 +13,15 @@
   @apply w-full flex flex-col
   items-center justify-center
   text-whitebits mx-auto;
+}
 
-  .content {
-    @apply mt-16;
-  }
+.content {
+  @apply mt-16;
 }
 
 @screen md {
-  .app-container {
-    .content {
-      margin-top: 7rem;
-    }
+  .content {
+    margin-top: 7rem;
   }
 }
 </style>

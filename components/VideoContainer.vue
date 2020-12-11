@@ -100,52 +100,50 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .video-container {
   @apply flex flex-col;
+}
 
-  .video-bar-container {
-    @apply flex flex-row px-3 justify-between items-center;
+.video-bar-container {
+  @apply flex flex-row px-3 justify-between items-center;
+}
 
-    &.top-bar {
-      @apply mb-2 text-xl;
+.top-bar {
+  @apply mb-2 text-xl;
+}
 
-      .show-suggestions-button {
-        @apply hidden;
-      }
-    }
+.show-suggestions-button {
+  @apply hidden;
+}
 
-    &.bottom-bar {
-      @apply items-center pb-2 mt-2 border-b-2 border-graybits-900;
+.bottom-bar {
+  @apply items-center pb-2 mt-2 border-b-2 border-graybits-900;
+}
 
-      .author-and-date-wrapper {
-        @apply flex flex-col;
+.author-and-date-wrapper {
+  @apply flex flex-col;
+}
 
-        .author {
-          @apply text-lg;
-        }
+.author {
+  @apply text-lg;
+}
 
-        .separator {
-          @apply hidden;
-        }
+.separator {
+  @apply hidden;
+}
 
-        .date {
-          @apply text-xs;
-        }
-      }
+.date {
+  @apply text-xs;
+}
 
-      .show-description-btn {
-        .show-description-icon {
-          @apply transition-transform rotate-0;
-        }
-      }
-    }
-  }
+.show-description-icon {
+  @apply transition-transform rotate-0;
+}
 
-  .description-wrapper {
-    @apply overflow-hidden transition-maxh
-    max-h-0 border-b-2 border-graybits-900;
-  }
+.description-wrapper {
+  @apply overflow-hidden transition-maxh
+  max-h-0 border-b-2 border-graybits-900;
 }
 
 .animation {
@@ -153,12 +151,8 @@ export default {
 }
 
 @screen sm {
-  .video-container {
-    .video-bar-container {
-      &.top-bar {
-        @apply text-2xl;
-      }
-    }
+  .top-bar {
+    @apply text-2xl;
   }
 }
 
@@ -167,46 +161,42 @@ export default {
     width: 100%;
     height: 80rem;
     @apply mb-8 transition-width;
+  }
 
-    .video-bar-container {
-      @apply px-0;
+  .video-bar-container {
+    @apply px-0;
+  }
 
-      &.top-bar {
-        .show-suggestions-button {
-          @apply inline-block;
-        }
-      }
+  .show-suggestions-button {
+    @apply inline-block;
+  }
 
-      &.bottom-bar {
-        .author-and-date-wrapper {
-          @apply flex-row items-center;
+  .author-and-date-wrapper {
+    @apply flex-row items-center;
+  }
 
-          .author {
-            @apply text-2xl mr-2;
-          }
+  .author {
+    @apply text-2xl mr-2;
+  }
 
-          .separator {
-            @apply inline-block text-2xl mr-2;
-          }
+  .separator {
+    @apply inline-block text-2xl mr-2;
+  }
 
-          .date {
-            @apply text-2xl;
-          }
-        }
+  .date {
+    @apply text-2xl;
+  }
 
-        .show-description-btn {
-          @apply hidden;
-        }
-      }
-    }
+  .show-description-btn {
+    @apply hidden;
+  }
 
-    .show-description-icon {
-      @apply rotate-0;
-    }
+  .show-description-icon {
+    @apply rotate-0;
+  }
 
-    .description-wrapper {
-      @apply max-h-full flex-grow;
-    }
+  .description-wrapper {
+    @apply max-h-full flex-grow;
   }
 }
 </style>
