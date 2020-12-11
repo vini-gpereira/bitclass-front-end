@@ -49,10 +49,6 @@ export default {
   .suggestions-title {
     @apply text-3xl;
   }
-
-  .suggestion-item-wrapper {
-    @apply border-graybits-900;
-  }
 }
 
 @screen xl {
