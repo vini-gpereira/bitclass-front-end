@@ -13,7 +13,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--gray);
   min-height: 100vh;
-  min-width: 100vw;
 }
 
 *::-webkit-scrollbar {
