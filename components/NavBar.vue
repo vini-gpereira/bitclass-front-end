@@ -106,7 +106,7 @@ export default {
 }
 
 .open-menu-btn {
-  @apply text-whitebits;
+  color: var(--white) !important;
 }
 
 .close-menu-btn {

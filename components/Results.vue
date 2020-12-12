@@ -24,6 +24,7 @@ export default {
 <style scoped>
 .results-container {
   width: 90%;
+  max-width: 70rem;
   @apply flex flex-col items-center justify-center;
 }
 

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getSuggestions, getVideo } from '@/mock/api'
+import { getSuggestions, getVideo } from '@/api/app'
 
 export default {
   data() {
@@ -15,24 +15,31 @@ export default {
       suggestions: null,
     }
   },
-  mounted() {
+  async mounted() {
     const videoId = this.$route.query.v
-    this.changeVideo(videoId)
+    await this.changeVideo(videoId)
   },
   methods: {
-    changeVideo(videoId) {
+    async changeVideo(videoId) {
       if (!videoId) {
         this.$router.push({ name: 'index' })
         return
       }
 
-      this.video = getVideo(videoId)
-      this.suggestions = getSuggestions(videoId)
+      const video = await getVideo(videoId)
+
+      if (!video) {
+        this.$router.push({ name: 'index' })
+        return
+      }
+
+      this.video = video
+      this.suggestions = await getSuggestions(videoId)
     },
   },
-  watchQuery(newQuery) {
+  async watchQuery(newQuery) {
     const videoId = newQuery.v
-    this.changeVideo(videoId)
+    await this.changeVideo(videoId)
   },
 }
 </script>

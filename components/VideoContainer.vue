@@ -18,10 +18,8 @@
     </section>
     <Video :video-id="video.id" />
     <section class="video-bar-container bottom-bar">
-      <div class="author-and-date-wrapper">
-        <span class="author">{{ video.author }}</span>
-        <span class="separator"> - </span>
-        <span class="date">{{ video.postDate }}</span>
+      <div class="date">
+        {{ video.postDate }}
       </div>
       <v-btn
         icon
@@ -36,7 +34,7 @@
         ></fa-icon>
       </v-btn>
     </section>
-    <div id="description-wrapper" class="description-wrapper animation">
+    <div v-show="showDescription" class="description-wrapper">
       <Description :video="video" />
     </div>
   </div>
@@ -52,9 +50,16 @@ export default {
   },
   data() {
     return {
+      windowWidth: 0,
       showDescription: false,
       showSuggestions: false,
     }
+  },
+  mounted() {
+    this.handleResize()
+  },
+  beforeMount() {
+    window.addEventListener('resize', this.handleResize)
   },
   methods: {
     toggleSuggestions() {
@@ -84,17 +89,22 @@ export default {
     },
     toogleDescription() {
       const showDescIcon = document.getElementById('show-description-icon')
-      const descWrapper = document.getElementById('description-wrapper')
 
       this.showDescription = !this.showDescription
 
       if (this.showDescription) {
         showDescIcon.style.transform = 'rotate(180deg)'
-        descWrapper.style.maxHeight = descWrapper.scrollHeight + 'px'
       } else {
         showDescIcon.style.transform = 'rotate(0)'
-        descWrapper.style.maxHeight = '0px'
       }
+    },
+    handleResize() {
+      const windowWidth = window.innerWidth
+
+      if (windowWidth >= 1280) this.showDescription = true
+      else this.showDescription = false
+
+      this.windowWidth = windowWidth
     },
   },
 }
@@ -102,7 +112,7 @@ export default {
 
 <style scoped>
 .video-container {
-  @apply flex flex-col;
+  @apply flex flex-col w-full;
 }
 
 .video-bar-container {
@@ -125,16 +135,12 @@ export default {
   @apply flex flex-col;
 }
 
-.author {
-  @apply text-lg;
-}
-
 .separator {
   @apply hidden;
 }
 
 .date {
-  @apply text-xs;
+  @apply text-base;
 }
 
 .show-description-icon {
@@ -142,8 +148,8 @@ export default {
 }
 
 .description-wrapper {
-  @apply overflow-hidden transition-maxh
-  max-h-0 border-b-2 border-graybits-900;
+  @apply overflow-hidden
+  border-b-2 border-graybits-900;
 }
 
 .animation {
@@ -154,11 +160,14 @@ export default {
   .top-bar {
     @apply text-2xl;
   }
+
+  .date {
+    @apply text-2xl;
+  }
 }
 
 @screen xl {
   .video-container {
-    width: 100%;
     height: 80rem;
     @apply mb-8 transition-width;
   }
@@ -171,20 +180,8 @@ export default {
     @apply inline-block;
   }
 
-  .author-and-date-wrapper {
-    @apply flex-row items-center;
-  }
-
-  .author {
-    @apply text-2xl mr-2;
-  }
-
   .separator {
     @apply inline-block text-2xl mr-2;
-  }
-
-  .date {
-    @apply text-2xl;
   }
 
   .show-description-btn {
@@ -196,7 +193,7 @@ export default {
   }
 
   .description-wrapper {
-    @apply max-h-full border-b-0 flex-grow;
+    @apply border-b-0 flex-grow;
   }
 }
 </style>

@@ -11,7 +11,6 @@
     </div>
     <div class="suggestion-data-container">
       <h1>{{ video.title }}</h1>
-      <span>{{ video.author }}</span>
       <span>{{ video.duration }} • {{ video.postDate }}</span>
     </div>
   </NuxtLink>

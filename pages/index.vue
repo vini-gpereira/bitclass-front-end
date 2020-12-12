@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getResults } from '@/mock/api'
+import { getResults } from '@/api/app'
 
 export default {
   data() {
@@ -11,8 +11,8 @@ export default {
       results: null,
     }
   },
-  mounted() {
-    this.results = getResults()
+  async mounted() {
+    this.results = await getResults()
   },
 }
 </script>

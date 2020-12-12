@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getResults } from '@/mock/api'
+import { getResults } from '@/api/app'
 
 export default {
   data() {
@@ -11,14 +11,14 @@ export default {
       results: null,
     }
   },
-  mounted() {
+  async mounted() {
     const term = this.$store.state.searchText
 
-    this.results = getResults(term)
+    this.results = await getResults(term)
   },
-  watchQuery(newQuery) {
+  async watchQuery(newQuery) {
     const term = newQuery.term || ''
-    this.results = getResults(term)
+    this.results = await getResults(term)
   },
 }
 </script>
