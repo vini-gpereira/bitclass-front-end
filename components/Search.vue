@@ -42,7 +42,7 @@ export default {
 
       this.$router.push({
         name: 'results',
-        query: { ...this.$route.query, term: this.searchInput },
+        query: { term: this.searchInput },
       })
 
       this.hideMenu()
