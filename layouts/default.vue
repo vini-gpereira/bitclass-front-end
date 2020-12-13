@@ -6,8 +6,6 @@
 </template>
 
 <style>
-@import '~/assets/css/style.css';
-
 .app-container {
   max-width: 1920px;
   @apply w-full flex flex-col
