@@ -1,11 +1,23 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'bitclass-plataform',
+    title: 'BitClass',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { name: 'author', content: 'Vinicius Pereira' },
+      { name: 'robots', content: 'index, follow' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'O BitClass é uma plataforma onde estão todos os vídeos postados no YouTube pela equipe da iniciativa CodeLab Bits no canal do grupo de extensão USPCodeLab, que é sediado no IME-USP.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'BitClass, BitsClass, Bits, UCL, USPCodeLab, USPCodeLabs, CodeLab, CodeLabs, IME, USP',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
