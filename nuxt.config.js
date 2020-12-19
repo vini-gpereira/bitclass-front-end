@@ -5,8 +5,6 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'author', content: 'Vinicius Pereira' },
-      { name: 'robots', content: 'index, follow' },
       {
         hid: 'description',
         name: 'description',
