@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .iframe-container {
   padding-bottom: min(625px, 55%);
   @apply relative;

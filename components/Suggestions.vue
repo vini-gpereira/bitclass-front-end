@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .suggestions-container {
   @apply flex flex-col items-center px-3;
 }

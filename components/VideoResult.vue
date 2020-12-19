@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .video-result-container {
   @apply flex-row duration-200 ease-out;
 }

@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .search-container {
   width: 90%;
   max-width: 40rem;

@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .results-container {
   width: 90%;
   max-width: 70rem;
