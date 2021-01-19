@@ -52,4 +52,4 @@ npm run lint:style
   - The branch `feat/categories` contains the logic i created for video categories
   - Try to refactor the logic and use this
   - Every video on youtube has a field called tags, try to use that to store categories and fetch this information with the youtube api
-    - Example: [Api fetch example][https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=JuflKzsYOf4,SLoaKDflXnY&fields=items(id,snippet(publishedAt,title,description,tags),contentDetails(duration))&key=AIzaSyB6eK43_XqoZ4wFrSzWibgmaKW-qeGI4ZU]
+    - Example: https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=JuflKzsYOf4,SLoaKDflXnY&fields=items(id,snippet(publishedAt,title,description,tags),contentDetails(duration))&key=AIzaSyB6eK43_XqoZ4wFrSzWibgmaKW-qeGI4ZU
